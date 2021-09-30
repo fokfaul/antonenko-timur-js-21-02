@@ -8,10 +8,35 @@ body {
 	color: #000000;
 }
 .main-header{
+    margin: 5px;
+    margin-bottom: 10px;
     padding: 10px;
 	font-size: 32px;
 	line-height: 50px;
 	font-weight: bold;
 	color: white;
 	background-color: #427e64;
+}
+.container{
+    margin: 5px;
+}
+.store-menu{
+    display: block;
+    float: left;
+    width: 250px;
+    padding: 10px;
+    background-color: #f2f2f2;
+}
+.store .store-menu h4{
+	margin: 0;
+	font-size: 16px;
+}
+.store .store-menu ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.store .store-menu ul li{
+    display: list-item;
+    margin-left: 20px;
 }
