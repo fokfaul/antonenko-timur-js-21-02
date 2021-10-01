@@ -53,19 +53,23 @@ body {
     float: left;
     min-width: 500px;
     margin: 15px 10px;
-    background-color: green;
 }
 .store .store-info .store-info-title{
     padding-left: 10px;
     margin-bottom: 40px;
 }
-.store .store-info h3{
+.store .store-info h2{
 	margin: 0;
 	font-size: 32px;
 }
 .store .store-info p{
 	margin: 10px 0;
 	font-weight: 500;
+}
+.store .store-info-section::after{
+    display: table;
+    content: "";
+    clear: both;
 }
 .store-info-section .go-to-catalog{
     display: block;
@@ -80,4 +84,55 @@ body {
 }
 .store-info-section .go-to-catalog:last-child{
     margin-right: 0;
+}
+.store .store-info .store-popular-title h3{
+	margin: 25px 10px;
+	font-size: 24px;
+}
+.store .store-popular .store-popular-section::after{
+    display: table;
+    content: "";
+    clear: both;
+}
+.store .store-popular-section .store-popular-position{
+    display: block;
+    float: left;
+    padding: 10px;
+    padding-right: 70px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background-color: #f2f2f2;
+}
+.store .store-popular-section .store-popular-position:nth-child(4n){
+    clear:left;
+}
+}
+.store .store-popular-position>div{
+    display: block;
+    float: left;
+}
+.store .store-popular-position .position-image{
+    display: block;
+    float: left;
+    width: 57px;
+    height: 57px;
+    margin: 5px 0;
+    vertical-align: middle;
+    background-color: #c2c2c2;
+}
+.store .store-popular-position .position-navigation{
+    display: block;
+    float: left;
+    margin-left: 5px;
+}
+.store .store-popular-position .position-navigation div{
+    margin: 5px;
+}
+.store .store-popular-position .position-navigation .position-button{
+    padding: 2px 10px;
+    background-color: #cccccc;
+}
+.store .store-popular-position .position-navigation .position-button:hover{
+    background-color: #c2c2c2;
+    cursor: pointer;
 }
