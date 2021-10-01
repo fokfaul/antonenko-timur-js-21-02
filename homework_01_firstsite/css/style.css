@@ -8,17 +8,20 @@ body {
 	color: #000000;
 }
 .main-header{
-    margin: 5px;
+    margin: 5px auto;
     margin-bottom: 10px;
     padding: 10px;
+    width: 980px;
 	font-size: 32px;
 	line-height: 50px;
 	font-weight: bold;
 	color: white;
-	background-color: #427e64;
+	background-color: #009a58;
 }
 .container{
     margin: 0px auto;
+    width: 1000px;
+    overflow: hidden;
 }
 .container::after{
     display: table;
@@ -27,12 +30,17 @@ body {
 }
 .store{
     margin: 5px;
+    margin-bottom: 15px;
+}
+.store .container{
+    height: 600px;
 }
 .store-menu{
     display: block;
     float: left;
     min-width: 250px;
     padding: 10px;
+    height: 100%;
     background-color: #f2f2f2;
 }
 .store .store-menu h4{
@@ -138,6 +146,8 @@ body {
 }
 .main-footer{
     padding: 10px 15px;
+    margin: 0 auto;
+    width: 970px;
     background-color: #f2f2f2;
     color: #7c4343;
 }
