@@ -1,5 +1,5 @@
 body {
-    min-width: 1080px;
+    min-width: 1000px;
 	margin: 0;
 	padding: 0;
 	font-family: Trebuchet MS, sans-serif;
@@ -135,4 +135,24 @@ body {
 .store .store-popular-position .position-navigation .position-button:hover{
     background-color: #c2c2c2;
     cursor: pointer;
+}
+.main-footer{
+    padding: 10px 15px;
+    background-color: #f2f2f2;
+    color: #7c4343;
+}
+.main-footer>p{
+    display: block;
+    margin: 0;
+}
+.main-footer::after{
+    display: table;
+    content: "";
+    clear: both;
+}
+.main-footer .contact-info{
+    float: left;
+}
+.main-footer .copyright{
+    float: right;
 }
