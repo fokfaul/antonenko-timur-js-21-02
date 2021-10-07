@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/fokfaul/antonenko-timur-js-21-02#readme",
   "devDependencies": {
+    "browser-sync": "^2.27.5",
     "gulp": "^4.0.2",
     "gulp-less": "^5.0.0",
     "less": "^4.1.2"
