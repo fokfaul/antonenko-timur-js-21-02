@@ -10,7 +10,18 @@ const secondNum = prompt("2. Введите число.");
 alert("2. "+truncate(secondStr, secondNum));
 
 const thirdStr = prompt("3. Введите дату в формате dd/mm/year hh-mm");
-alert("3. "+thirdStr.replace(new RegExp("/",'g'),'.').replace(/-/,':'))*/
+alert("3. "+thirdStr.replace(new RegExp("/",'g'),'.').replace(/-/,':'))
 
 const fourthStr = prompt("4. Введите ФИО.");
 alert("4. "+(/^[А-Яа-я]+ [А-Яа-я]+( ([А-Яа-я]+вич)| ([А-Яа-я]+вна))*$/.test(fourthStr)));
+
+function camelToSnake(string) {
+    return string.replace(/[\w]([A-Z])/g, function(m) {
+        return m[0] + "_" + m[1];
+    }).toLowerCase();
+}
+const fifthStr = prompt("5. Введите строку в формате СamalCase.");
+alert("5. snake_case: "+camelToSnake(fifthStr));*/
+
+const sixthText = prompt("5. Вставьте html-код.");
+alert(sixthText.match(/<!--.*?-->/gs));
