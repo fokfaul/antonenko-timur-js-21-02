@@ -1,4 +1,4 @@
-/*const firstStr = prompt("1. Введите две строки через запяту.").split(',',2);
+const firstStr = prompt("1. Введите две строки через запяту.").split(',',2);
 alert("1. "+(firstStr[0].toLowerCase()===firstStr[1].toLowerCase()));
 
 function truncate(str, maxlength) {
@@ -21,7 +21,25 @@ function camelToSnake(string) {
     }).toLowerCase();
 }
 const fifthStr = prompt("5. Введите строку в формате СamalCase.");
-alert("5. snake_case: "+camelToSnake(fifthStr));*/
+alert("5. snake_case: "+camelToSnake(fifthStr));
 
-const sixthText = prompt("5. Вставьте html-код.");
+const sixthText = prompt("6. Вставьте html-код.");
 alert(sixthText.match(/<!--.*?-->/gs));
+
+const seventhText = prompt("7. Введите строку.");
+alert(seventhText.match(/\d+(\.\d+)?/g));
+
+function RightIdDoc(){
+    let eighthStr = prompt("8. Введите идентификатор документа.");
+    eighthRegExp = /^([A-Za-z0-9]{16})|([A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4})$/
+    if(eighthRegExp.test(eighthStr))
+        alert("Ведётся поиск");
+    else
+    {
+        alert("неверный индентификатор");
+        RightIdDoc();
+    }
+    return;
+}
+
+RightIdDoc();
