@@ -106,3 +106,46 @@ function filterArr(arr, a, b){
 const eighth_inArray = [1, -1, 2, 5, 10, -9, -45], inN1 = 5, inN2 = -8;
 console.log(filterArr(eighth_inArray, inN1, inN2));
 
+//9. Функция принимает две строки. Вывести true, если строки являются анаграммами, в противном случае false
+
+function anagramCheck(str1, str2){
+    return str1.toLowerCase().split("").sort().join("") === str2.toLowerCase().split("").sort().join("");
+}
+const ninthStr_1 = "filter", ninthStr_2 = "lifter";
+console.log(anagramCheck(ninthStr_1, ninthStr_2));
+
+/* 10. Создать объект, выводящий в консоль все ключи и значения объекта в формате "ключ: значение"
+через запятую (считать, что значением ключа объекта не может быть объектом или массивом, содержащими
+ объекты) сама функция в консоль выводиться не должна.*/
+
+const tenthObject = {
+    name: "десятый",
+    class: "объект",
+    value: 10,
+    description: {task: true},
+    about: function(){
+        let out = "";
+        for(let key in this)
+            if (key !== "about")
+                out = out+key+' : '+this[key]+', ';
+        return out;
+    }
+}
+
+console.log(tenthObject.about());
+
+/*11. Создать функцию-конструктор для объекта, содержащего методы serProp (установить значение
+свойства), метод принимает ключь (строка), значение (произвольное) и объект со свойствами writable,
+configurable, enumerable (разрешение перезаписи свойства, разрешение перечисления свойства и разрешение
+удаления свойства). Если какое-то из свойств в объекте отсутствует, действие должно быть разрешено*/
+
+function Constructor(){
+    this.serProp = function(key, value, properties){
+        this[key]=value;
+        Object.defineProperty(this,key, properties);
+    }
+}
+
+const obj11 = new Constructor("name");
+obj11.serProp("name", "test", {"writable": false, "configurable": false});
+console.log(Object.getOwnPropertyDescriptors(obj11));
