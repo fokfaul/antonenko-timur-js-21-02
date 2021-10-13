@@ -49,3 +49,60 @@ function sumValue(obj){
 }
 
 console.log(sumValue(fourth_inObject));
+
+//5. На вход поступает массив с числами, вывести среднее арифметическое элементов массива.
+
+const fifth_inArray = [2, 4, 6, 10, 1, 3, 5, 9];
+console.log(fifth_inArray.reduce((sum, current) => {return sum+current;}, 0)/fifth_inArray.length);
+
+/*6. Создать функцию-конструктор для объекта "калькулятор", объект должен иметь поле, хранящее текущее
+значение и методы сложения, вычитания, умножения и деления, принимающие число и манипулирующий свойством значения
+в соответствии с назначением метода, а так же функцию, сбрасывающую значение в ноль.*/
+
+const Calculator = {
+    current: 0,
+    add: function(num){this.current += num;},
+    sub: function(num){this.current -= num;},
+    multi: function(num){this.current *= num;},
+    div: function(num){this.current = this.current/num;},
+    to_zero: function(){this.current = 0}
+}
+
+Calculator.add(7); Calculator.sub(3); Calculator.multi(4);
+console.log(Calculator.current);
+
+/*7. Функция принимает смешанный массив (содержащий значения чисел, строк и объектов), вернуть объект с полями
+numbers, strings и objects, содержащими массив со значениями, соответствующими названию поля.*/
+
+const seventh_inArray = [12, "aasd", 15, {asd: 12}, "fes", {as: "rest"}];
+const seventh_outObject = {
+    numbers: [],
+    strings: [],
+    objects: []
+};
+seventh_inArray.forEach((el) => {
+    if(typeof el === 'number')
+        seventh_outObject.numbers.push(el);
+    if(typeof el === 'object')
+        seventh_outObject.objects.push(el);
+    if(typeof el === 'string')
+        seventh_outObject.strings.push(el);
+});
+console.log(seventh_outObject);
+
+/*8. Функция принимает массив чисел и два числовых значения, вернуть новый массив, содержащий элементы первого
+массива, значение которых попадает под диапазон переданных в функцию чисел (второе переданное число может быть
+больше первого)*/
+
+function filterArr(arr, a, b){
+    return arr.filter((value) => {
+        if((b<a && value>=b && value<=a) || (b>a && value<=b && value>=a))
+            return true;
+        else
+            return false;
+    });
+}
+
+const eighth_inArray = [1, -1, 2, 5, 10, -9, -45], inN1 = 5, inN2 = -8;
+console.log(filterArr(eighth_inArray, inN1, inN2));
+
