@@ -125,13 +125,17 @@ const tenthObject = {
     about: function(){
         let out = "";
         for(let key in this)
-            if (key !== "about")
-                out = out+key+' : '+this[key]+', ';
-        return out;
+            if (typeof this[key] !== "undefined" && typeof this[key] !== 'object' && typeof this[key] !== 'function')
+            {
+                if (out !== "")
+                    out = out + ", ";
+                out = out+key+" : "+this[key];
+            }
+        console.log(out);
     }
 }
 
-console.log(tenthObject.about());
+tenthObject.about();
 
 /*11. Создать функцию-конструктор для объекта, содержащего методы serProp (установить значение
 свойства), метод принимает ключь (строка), значение (произвольное) и объект со свойствами writable,
