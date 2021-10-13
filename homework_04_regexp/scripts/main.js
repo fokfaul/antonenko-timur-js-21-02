@@ -16,7 +16,7 @@ const fourthStr = prompt("4. Введите ФИО.");
 alert("4. "+(/^[А-Яа-я]+ [А-Яа-я]+( ([А-Яа-я]+вич)| ([А-Яа-я]+вна))*$/.test(fourthStr)));
 
 function camelToSnake(string) {
-    return string.replace(/[\w]([A-Z])/g, function(m) {
+    return string.replace(/[A-Za-zА-Яа-я0-9_]([A-ZА-Я])/g, function(m) {
         return m[0] + "_" + m[1];
     }).toLowerCase();
 }
@@ -31,8 +31,8 @@ alert(seventhText.match(/\d+(\.\d+)?/g));
 
 function RightIdDoc(){
     let eighthStr = prompt("8. Введите идентификатор документа.");
-    eighthRegExp_one = /^[A-Za-z0-9]{16}$/
-    eighthRegExp_two = /^[A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}$/
+    eighthRegExp_one = /^[A-Za-z0-9]{16}$/;
+    eighthRegExp_two = /^[A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}$/;
     if((eighthRegExp_one.test(eighthStr) && eighthStr.length == 16) || (eighthRegExp_two.test(eighthStr) && eighthStr.length == 19))
         alert("Ведётся поиск");
     else
