@@ -1,5 +1,5 @@
 const firstStr = prompt("1. Введите две строки через запяту.").split(',',2);
-alert("1. "+(firstStr[0].toLowerCase()===firstStr[1].toLowerCase()));
+alert("1. "+(firstStr[0].toLowerCase().indexOf(firstStr[1].toLowerCase()) >= 0));
 
 function truncate(str, maxlength) {
   return (str.length > maxlength) ?
@@ -31,8 +31,9 @@ alert(seventhText.match(/\d+(\.\d+)?/g));
 
 function RightIdDoc(){
     let eighthStr = prompt("8. Введите идентификатор документа.");
-    eighthRegExp = /^([A-Za-z0-9]{16})|([A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4})$/
-    if(eighthRegExp.test(eighthStr))
+    eighthRegExp_one = /^[A-Za-z0-9]{16}$/
+    eighthRegExp_two = /^[A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}$/
+    if((eighthRegExp_one.test(eighthStr) && eighthStr.length == 16) || (eighthRegExp_two.test(eighthStr) && eighthStr.length == 19))
         alert("Ведётся поиск");
     else
     {
