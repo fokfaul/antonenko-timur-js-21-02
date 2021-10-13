@@ -1,4 +1,3 @@
-/*
 // 1. На вход поступает массив, вывести массив, удалив неуникальные значения.
  const first_inArray = [1, 2, 5, 6, 11, 5, '1', '1'];
  console.log(first_inArray.filter((value, index, arr) => {return arr.indexOf(value) === index}));
@@ -11,7 +10,7 @@ for(let i=0,j; i*2<second_inArray.length; i++)
     second_inArray[i] = second_inArray[second_inArray.length-1-i];
     second_inArray[second_inArray.length-1-i] = j;
 }
-console.log(second_inArray);*/
+console.log(second_inArray);
 
 /* 3. На вход поступает массив, содержащий массивы, в которых хранится два элемента. Преобразовать массив в объект,
 где ключами являются нулевой индекс вложенных массивов, а значениями являются элементы с индексом один.*/
