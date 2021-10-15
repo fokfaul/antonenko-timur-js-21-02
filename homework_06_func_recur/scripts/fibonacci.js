@@ -4,7 +4,7 @@ const getFact = (() => {
         if(a > cash.length - 1)
         {
             cash[cash.length] = cash[cash.length-1] + cash[cash.length-2];
-//            console.log("Запись в кэш");
+            console.log("Запись в кэш");
             return getFact(a);
         }
         console.log(cash);
