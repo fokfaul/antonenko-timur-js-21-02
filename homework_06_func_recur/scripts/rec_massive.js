@@ -1,27 +1,21 @@
 function findAllArrayToObject (obj){
     const outObj = {};
-    if(Array.isArray(obj))
-    {
-        if(obj.length == 2 && typeof obj[0] === 'string')
-        {
-            if(typeof obj[1] === 'object')
-                outObj[obj[0]] = findAllArrayToObject(obj[1]);
-            else
-                outObj[obj[0]] = obj[1];
-        }
-        else
-        {
-            const outArray = [];
-            for(let key in obj)
-                if(typeof obj[key] === 'object')
-                    outArray.push(findAllArrayToObject(obj[key]));
+    for(let key in obj)
+        if(Array.isArray(obj[key]))
+            if(obj[key].length == 2 && typeof obj[key][0] === 'string')
+                if(typeof obj[key][1] === 'object')
+                    outObj[obj[key][0]] = findAllArrayToObject(obj[key][1]);
                 else
-                    outArray.push(obj[key]);
-            return outArray;
-        }
-    }
-    else
-        for(let key in obj)
+                    if(Array.isArray(obj))
+                        outObj[obj[key][0]] = obj[key][1];
+                    else
+                    {
+                        outObj[key] = {};
+                        outObj[key][obj[key][0]] = obj[key][1];
+                    }
+            else
+                outObj[key] = findAllArrayToObject(obj[key]);
+        else
             if(typeof obj[key] === 'object')
                 outObj[key] = findAllArrayToObject(obj[key]);
             else
@@ -38,13 +32,16 @@ const testArray = [
             ["cat", "Balthazar"]
         ]
     ],
-    {
+    ["strong", {
         "lvl2_1": 12,
-        "lvl2_2": [["mass_2_1", "lvl2"], ["mass_2_2", "lvl2"], ["no_mass", "lvl2_1", "lvl2_2"]],
+        "lvl2_2": [["mass_2_1", "lvl2"], ["mass_2_2", "lvl2"]],
         "lvl2_3": {
-            "lvl3": ["mass_3", "lvl3"]
+            "lvl3_1": ["mass_4_1", "lvl4_1"],
+            "lvl3_2": [["mass_4_2", "lvl4_2"], ["mass_4_3", "lvl4_3"]]
         }
-    }
+    }],
+    ["flag", true],
+    ["about", {"name": "test", "ver": 1.2}]
 ];
 
 console.log(findAllArrayToObject(testArray));
