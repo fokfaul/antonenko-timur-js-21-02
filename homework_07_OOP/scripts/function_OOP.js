@@ -8,7 +8,10 @@ Object.defineProperties(Animal.prototype, {
         return "неизвестное животное молчит";
     }, writable:true},
     rename: {value: function(name){
-        this.name = name;
+        if(/^[А-Яа-я -]*$/.test(name))
+            this.name = name;
+        else
+            console.log("Кличка введена неверно. Новая кличка должна содержать только кирилические символы, пробелы или символ '-'.")
     }, writable:true}
 });
 
@@ -45,6 +48,7 @@ const parrot_f = new Parrot();
 
 console.log("--> Проверка функций");
 console.log(dog_f.say());
+parrot_f.rename("Kesha");
 parrot_f.rename("Кеша");
 console.log(parrot_f.say());
 console.log(cat_f.name);

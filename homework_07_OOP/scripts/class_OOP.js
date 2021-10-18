@@ -1,7 +1,12 @@
 class classAnimal{
     constructor(){this._name = "этот";}
     get name(){return this._name;}
-    rename(name){this._name = name;}
+    rename(name){
+        if(/^[А-Яа-я -]*$/.test(name))
+            this._name = name;
+        else
+            console.log("Кличка введена неверно. Новая кличка должна содержать только кирилические символы, пробелы или символ '-'.")
+    }
     say(){return "неизвестное животное молчит";}
     eat(){return this._name+" ест";}
 }
@@ -25,6 +30,7 @@ const parrot_c = new classParrot();
 
 console.log("--> Проверка классов");
 console.log(dog_c.say());
+parrot_c.rename("Kesha");
 parrot_c.rename("Кеша");
 console.log(parrot_c.say());
 console.log(cat_c.name);

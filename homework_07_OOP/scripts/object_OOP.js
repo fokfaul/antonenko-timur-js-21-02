@@ -8,7 +8,10 @@ Object.defineProperties(animal, {
         return "неизвестное животное молчит";
     }, writable:true},
     rename: {value: function(name){
-        this.name = name;
+        if(/^[А-Яа-я -]*$/.test(name))
+            this.name = name;
+        else
+            console.log("Кличка введена неверно. Новая кличка должна содержать только кирилические символы, пробелы или символ '-'.")
     }, writable:true}
 });
 
@@ -24,18 +27,6 @@ Object.defineProperties(cat, {
         return "кот мяукает";
     }, writable:true}
 });
-
-console.log("--> Проверка объектов");
-console.log(cat.name);
-console.log(cat.say());
-console.log(cat.hunt());
-cat.rename("Барсик");
-console.log(cat.hunt());
-console.log(cat.eat());
-for(key in animal)
-    console.log(key);
-for(key in cat)
-    console.log(key);
 
 const dog = {
     __proto__: animal
@@ -57,6 +48,16 @@ Object.defineProperties(parrot, {
     }, writable:true}
 });
 
+console.log("--> Проверка объектов");
 console.log(dog.say());
+parrot.rename("Kesha");
 parrot.rename("Кеша");
 console.log(parrot.say());
+console.log(cat.name);
+console.log(cat.say());
+console.log(cat.hunt());
+cat.rename("Барсик");
+console.log(cat.hunt());
+console.log(cat.eat());
+for(key in cat)
+    console.log(key);
