@@ -15,6 +15,7 @@ Object.defineProperties(animal, {
 const cat = {
     __proto__: animal
 };
+Object.defineProperty(cat, "__proto__",{enumerable: false, writable:false, configurable: false});
 Object.defineProperties(cat, {
     hunt: {value: function(){
         return this.name+" охотится";
@@ -24,8 +25,7 @@ Object.defineProperties(cat, {
     }, writable:true}
 });
 
-
-console.log(cat);
+console.log("--> Проверка объектов");
 console.log(cat.name);
 console.log(cat.say());
 console.log(cat.hunt());
@@ -40,6 +40,7 @@ for(key in cat)
 const dog = {
     __proto__: animal
 };
+Object.defineProperty(dog, "__proto__",{enumerable: false, writable:false, configurable: false});
 Object.defineProperties(dog, {
     say: {value: function(){
         return "собака лает";
@@ -49,6 +50,7 @@ Object.defineProperties(dog, {
 const parrot = {
     __proto__: animal
 };
+Object.defineProperty(parrot, "__proto__",{enumerable: false, writable:false, configurable: false});
 Object.defineProperties(parrot, {
     say: {value: function(){
         return this.name+" умный";
