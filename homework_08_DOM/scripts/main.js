@@ -2,6 +2,9 @@ const phone_book = document.getElementById("phoneBookId");
 const button = document.getElementById("addPhoneId");
 const input_name = document.getElementById('phoneNameId');
 const input_number = document.getElementById('phoneNumberId');
+const purple_theme = document.getElementById('purpleThemeId');
+const dark_theme = document.getElementById('darkThemeId');
+const golden_theme = document.getElementById('goldenThemeId');
 
 const validateName = (name) => /^[А-я]{0,16}$/.test(name);
 const validateNumber = (name) => /^\+?[0-9]{0,16}$/.test(name);
@@ -37,6 +40,14 @@ function removeRow(e){
     e.target.parentElement.remove();
 }
 
+function changeTheme(class_name){
+    phone_book.classList = "";
+    phone_book.classList.add("phone-book", class_name);
+}
+
 input_name.addEventListener('input', (e) => handleInput(e, validateName));
 input_number.addEventListener('input', (e) => handleInput(e, validateNumber));
 button.addEventListener('click', addPhone);
+purple_theme.addEventListener('click', () => changeTheme("purple-theme"));
+dark_theme.addEventListener('click', () => changeTheme("dark-theme"));
+golden_theme.addEventListener('click', () => changeTheme("golden-theme"));

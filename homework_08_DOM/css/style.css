@@ -27,6 +27,7 @@ body {
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 80px 470px;
 }
+/*Настройка меню выбора цвета*/
 .theme-menu{
     grid-row-start: 1;
     grid-row-end: 3;
@@ -53,7 +54,7 @@ body {
 #purpleThemeId{
     background: linear-gradient(90deg, #e901eb,#6011e1,#2de9e4);
 }
-
+/*Настройка таблицы*/
 .phone-book{
     margin: 10px;
     table-layout:fixed;
@@ -81,6 +82,32 @@ body {
 .phone-book tr:hover td:nth-child(3){
     display: table-cell;
 }
+/*Настройка других тем*/
+.phone-book.purple-theme{
+    background-color: #6011e1;
+    color: #e901eb;
+}
+.phone-book.purple-theme td{
+    border-color: #2de9e4;
+}
+.phone-book.dark-theme{
+    background-color: black;
+    color: white;
+}
+.phone-book.dark-theme caption{
+    color: grey;
+}
+.phone-book.dark-theme td{
+    border-color: white;
+}
+.phone-book.golden-theme{
+    background-color: #FBF5B7;
+    color: #AA771C;
+}
+.phone-book.golden-theme td{
+    border-color: #B38728;
+}
+/*Настройка формы*/
 .add-phone-form{
     margin: 10px;
     padding-left: 5px;
