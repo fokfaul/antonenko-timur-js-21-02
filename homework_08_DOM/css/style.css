@@ -1,0 +1,132 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, div, button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 16px;
+	line-height: 24px;
+	color: #000000;
+}
+.grid-container{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 80px 470px;
+}
+/*Настройка меню выбора цвета*/
+.theme-menu{
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+.theme-menu div{
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    border: 3px solid black;
+    border-radius: 25px;
+    background-color: grey;
+}
+.theme-menu div:hover{
+    cursor: pointer;
+}
+#darkThemeId{
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(11,9,9,1) 100%, rgba(0,212,255,1) 100%);
+    border-color: grey;
+}
+#goldenThemeId{
+    background:linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+}
+#purpleThemeId{
+    background: linear-gradient(90deg, #e901eb,#6011e1,#2de9e4);
+}
+/*Настройка таблицы*/
+.phone-book{
+    margin: 10px;
+    table-layout:fixed;
+    border-collapse: collapse;
+}
+.phone-book caption{
+    padding: 5px;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: bold;
+}
+.phone-book td{
+    width: 175px;
+    padding: 5px;
+    border: 2px solid black;
+}
+.phone-book tr td:nth-child(3){
+    display: none;
+    width: 10px;
+    text-align: center;
+}
+.phone-book tr td:nth-child(3):hover{
+    cursor: pointer;
+}
+.phone-book tr:hover td:nth-child(3){
+    display: table-cell;
+}
+/*Настройка других тем*/
+.phone-book.purple-theme{
+    background-color: #6011e1;
+    color: #e901eb;
+}
+.phone-book.purple-theme td{
+    border-color: #2de9e4;
+}
+.phone-book.dark-theme{
+    background-color: black;
+    color: white;
+}
+.phone-book.dark-theme caption{
+    color: grey;
+}
+.phone-book.dark-theme td{
+    border-color: white;
+}
+.phone-book.golden-theme{
+    background-color: #FBF5B7;
+    color: #AA771C;
+}
+.phone-book.golden-theme td{
+    border-color: #B38728;
+}
+/*Настройка формы*/
+.add-phone-form{
+    margin: 10px;
+    padding-left: 5px;
+}
+.add-phone-form input{
+    width: 150px;
+    margin-right: 15px;
+}
+.add-phone-form button{
+    width: 80px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #d6d6d6;
+}
+.add-phone-form button:hover{
+    background-color: #a3a3a3;
+    cursor: pointer;
+}
+.add-phone-form button:active{
+    background-color: #707070;
+    color: white;
+}
