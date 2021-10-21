@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="./scripts/main.js" defer></script>
+    <title>DOM</title>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="theme-menu">
+            <div id="goldenThemeId"></div>
+            <div id="darkThemeId"></div>
+            <div id="purpleThemeId"></div>
+        </div>
+        <table class="phone-book" id="phoneBookId">
+            <caption>Телефонная книга</caption>
+            <thead><tr><td>Имя</td><td>Телефон</td></tr></thead>
+            <tbody>
+                <tr><td>Елена</td><td>+79114785067</td><td onclick="removeRow(event);">X</td></tr>
+            </tbody>
+        </table>
+        <div class="add-phone-form">
+            <input id="phoneNameId">
+            <input id="phoneNumberId">
+            <button id="addPhoneId">Добавить</button>
+        </div>
+    </div>
+</body>
+</html>
