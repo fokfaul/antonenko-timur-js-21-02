@@ -2,22 +2,24 @@ const table_body = document.getElementById("tablePersonId").tBodies[0];
 const table_head = document.getElementById("tablePersonId").tHead;
 const table_nav = document.getElementById("tableNavigationId");
 
-const tableHeader = [{name:"Имя",value:0,direction:1},{name:"Пол",value:1,direction:1},{name:"Рост",value:2,direction:1},{name:"Вес",value:3,direction:1}];
-function sortTable(column){
-    const direction = tableHeader[column].direction;
-    tableHeader[column].direction = 0 - direction;
-    table_body.append(...Array.from(table_body.rows)
-                              .sort((rowA, rowB) => {
-                                if(!isNaN(rowA.cells[column].innerHTML) && !isNaN(rowB.cells[column].innerHTML))
-                                    return Number(rowA.cells[column].innerHTML) >= Number(rowB.cells[column].innerHTML) ? direction : 0-direction;
-                                else
-                                    return rowA.cells[column].innerHTML >= rowB.cells[column].innerHTML ? direction : 0-direction;
-                              }));
+const tableHeader = [{name:"Имя",value:0},{name:"Пол",value:1},{name:"Рост",value:2},{name:"Вес",value:3}];
+function tdEvent(column, direction){
+    this.sortTable = function(){
+        table_body.append(...Array.from(table_body.rows)
+                                  .sort((rowA, rowB) => {
+                                    if(!isNaN(rowA.cells[column].innerHTML) && !isNaN(rowB.cells[column].innerHTML))
+                                        return Number(rowA.cells[column].innerHTML) >= Number(rowB.cells[column].innerHTML) ? direction : 0-direction;
+                                    else
+                                        return rowA.cells[column].innerHTML >= rowB.cells[column].innerHTML ? direction : 0-direction;
+                                  }));
+        direction = 0 - direction;
+    }
 }
 tableHeader.forEach(el => {
     const td = document.createElement("td");
+    const td_func = new tdEvent(el.value, 1);
     td.innerHTML = el.name;
-    td.addEventListener('click', () => sortTable(el.value));
+    td.addEventListener('click', () => td_func.sortTable());
     table_head.append(td);
 });
 
@@ -37,7 +39,6 @@ const swapi = {
 }
 
 function printApiPeople (obj){
-    console.log(obj);
     table_body.innerHTML = "";
     obj.results.forEach(person => {
         const tr = document.createElement("tr");
