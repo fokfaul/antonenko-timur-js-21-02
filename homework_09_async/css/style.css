@@ -1,0 +1,67 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, div, button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 16px;
+	line-height: 24px;
+	color: #000000;
+}
+/*Настройка таблицы*/
+.table-person{
+    width: 700px;
+    margin: 10px;
+    table-layout:fixed;
+    border-collapse: collapse;
+}
+.table-person caption{
+    padding: 5px;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: bold;
+}
+.table-person td{
+    padding: 5px;
+    border: 2px solid black;
+}
+.table-person thead td{
+    border: 3px solid black;
+    font-weight: bold;
+}
+.table-person thead td:hover{
+    background-color: red;
+    cursor: pointer;
+}
+/*Настройка навигации*/
+.table-navigation{
+    margin: 10px;
+}
+.table-navigation ul{
+    display: -webkit-flex;
+    display: flex;
+    list-style: none;
+}
+.table-navigation li{
+    padding: 5px;
+    color: blue;
+    text-decoration: underline;
+}
+.table-navigation li:hover{
+    color: red;
+    cursor: pointer;
+}
