@@ -1,0 +1,7 @@
+.store{
+    margin-bottom: 15px;
+}
+.store .container{
+    display: grid;
+    grid-template-columns: 240px 1fr;
+}
