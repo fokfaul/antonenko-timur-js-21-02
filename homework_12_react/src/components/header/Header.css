@@ -8,6 +8,7 @@
     line-height: 50px;
     font-weight: bold;
     color: white;
+    text-align: left;
 }
 .main-header_narrow{
     display: none;

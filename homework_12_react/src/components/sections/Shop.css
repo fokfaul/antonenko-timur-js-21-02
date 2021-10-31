@@ -1,7 +1,15 @@
 .store{
     margin-bottom: 15px;
+    text-align: left;
 }
 .store .container{
     display: grid;
     grid-template-columns: 240px 1fr;
+}
+
+@media (max-width: 621px) {
+    .store .container{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
 }
