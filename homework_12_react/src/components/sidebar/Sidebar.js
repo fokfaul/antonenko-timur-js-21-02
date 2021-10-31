@@ -1,8 +1,7 @@
 import React from 'react';
 import './Sidebar.css';
 
-const menu = [{"name": "Морская рыба", "contain": ["Акула", "Окунь", "Палтус", "Треска"]},
-              {"name": "Пресноводная рыба", "contain": ["Белоглазка", "Осётр", "Речной угорь", "Налим"]}];
+import {menu} from '../../api-mock/api';
 
 export class Sidebar extends React.Component {
     render(){

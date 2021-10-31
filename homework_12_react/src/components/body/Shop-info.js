@@ -1,10 +1,8 @@
 import React from 'react';
 import './Shop-info.css';
 
-const top_info = [{"name": "Замороженные рыбы", "info": "Мы заморозили рыбов для вас"},
-                  {"name": "Живые рыбы", "info": "На кухню или на разведение"}];
-
-const position = ["Палтус", "Сёмга", "Сом", "Мойва", "Сельдь", "Тунец"];
+import {top_info} from '../../api-mock/api';
+import {position} from '../../api-mock/api';
 
 export class ShopInfo extends React.Component {
     render(){
