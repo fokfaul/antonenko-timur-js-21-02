@@ -1,0 +1,8 @@
+{
+  "include": ["./src/main.ts"],
+  "exclude": ["./dist/*"],
+  "compilerOptions": {
+    "noImplicitAny": true,   // Запрет на нетизипированные сущности
+    "target": "ES5"
+  }
+}

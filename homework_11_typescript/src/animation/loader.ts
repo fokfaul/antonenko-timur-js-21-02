@@ -1,6 +1,6 @@
 import * as loader from '../DOM/loader'
 
-export function Animation(){
+export function Animation(): Function{
     loader.main.classList.add("await");
     let interval = moveOnCircle();
     let t = 0;

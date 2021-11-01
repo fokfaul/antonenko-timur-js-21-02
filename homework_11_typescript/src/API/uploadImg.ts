@@ -2,7 +2,7 @@ import {Animation} from '../animation/loader'
 import {imgArr} from '../localStorage/imgArr'
 import {addImgToGallery} from '../DOM/gallery'
 
-export function uploadBase64UrlToImgBB(file : File) {
+export function uploadBase64UrlToImgBB(file : File): void {
     const stopAnimation = Animation();
     const reader = new FileReader();
     reader.readAsDataURL(file);
