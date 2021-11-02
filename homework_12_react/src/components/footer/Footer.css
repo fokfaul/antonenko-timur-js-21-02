@@ -1,0 +1,12 @@
+.footer-bottom{
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #f2f2f2;
+    color: #7c4343;
+}
+
+.footer-bottom p{
+    padding: 15px;
+}
