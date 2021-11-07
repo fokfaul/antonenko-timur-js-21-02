@@ -1,0 +1,12 @@
+.main-header .container{
+    margin-bottom: 10px;
+	background-color: #009a58;
+}
+.main-header h1{
+    padding: 10px;
+    font-size: 36px;
+    line-height: 50px;
+    font-weight: bold;
+    color: white;
+    text-align: left;
+}
