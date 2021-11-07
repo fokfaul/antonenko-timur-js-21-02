@@ -11,20 +11,24 @@ export default class ToDoList extends React.Component {
     this.state = { api: init_toDoList };
     this.removeTask = this.removeTask.bind(this);
     this.addTask = this.addTask.bind(this);
+    this.updateLocalStorage = this.updateLocalStorage.bind(this);
   }
 
   removeTask(index){
     init_toDoList.splice(index, 1);
-    this.setState({
-      api: init_toDoList
-    });
+    this.updateLocalStorage(init_toDoList);
   }
 
   addTask(task){
-      init_toDoList.push({"do": task, "status": false});
-      this.setState({
-        api: init_toDoList
-      });
+    init_toDoList.push({"do": task, "status": false});
+    this.updateLocalStorage(init_toDoList);
+  }
+
+  updateLocalStorage(arr){
+    localStorage.setItem('toDoList', JSON.stringify(arr));
+    this.setState({
+      api: arr
+    });
   }
 
   render() {
