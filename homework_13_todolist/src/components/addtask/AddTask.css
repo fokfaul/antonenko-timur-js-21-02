@@ -1,0 +1,28 @@
+.add-task .container{
+    display: grid;
+    grid-template-columns: 1fr 120px;
+}
+.add-task__input{
+    font-size: 20px;
+}
+.add-task__button{
+    margin-left: 10px;
+	padding: 10px 0;
+	font-size: 20px;
+	border-radius: 10px;
+	color: white;
+	background: #382d78;
+	text-decoration: none;
+	text-align: center;
+	text-transform: uppercase;
+	border: none;
+	cursor: pointer;
+	outline: none;
+}
+.add-task__button:hover{
+	background-color: #32286c;
+}
+.add-task__button:active{
+	background-color: #32286c;
+	color: #585183;
+}
