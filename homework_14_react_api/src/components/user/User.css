@@ -1,0 +1,8 @@
+.user{
+    display: -webkit-flex;
+    display: flex;
+}
+.user img{
+    width: 72px;
+    height: 72px;
+}
