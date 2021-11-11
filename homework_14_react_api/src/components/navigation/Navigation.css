@@ -1,3 +1,6 @@
+.navigation{
+    display: inline-block;
+}
 .navigation__page{
     display: inline-flex;
     padding: 5px 10px;

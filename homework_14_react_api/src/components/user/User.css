@@ -1,11 +1,13 @@
 .user{
-    display: -webkit-flex;
-    display: flex;
     padding: 15px;
     margin-bottom: 15px;
     background-color: white;
     border-radius: 5px;
     box-shadow: 0 0 5px 1px;
+}
+.user.dark{
+    background-color: black;
+    color: white;
 }
 .user:nth-child(odd){
     margin-right: 15px;

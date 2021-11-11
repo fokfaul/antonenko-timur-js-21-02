@@ -14,5 +14,5 @@ export const getUsersList = (
     [APP_ID_FIELD]: APP_ID_VALUE
   }),
 }).then((response) => response.json())
-  .then((response) => callback(response.data))
+  .then((response) => {return callback(response.data, response.total)})
   .catch(errorCallback);
