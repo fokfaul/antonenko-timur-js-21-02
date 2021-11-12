@@ -1,0 +1,11 @@
+.main-header .container{
+    margin-bottom: 10px;
+}
+.main-header h1{
+    padding: 10px;
+    font-size: 40px;
+    line-height: 50px;
+    font-weight: bold;
+    color: black;
+    text-align: left;
+}
