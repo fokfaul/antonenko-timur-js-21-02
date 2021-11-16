@@ -7,7 +7,7 @@
 }
 .user.dark{
     background-color: black;
-    color: white;
+    box-shadow: 0 0 5px 1px purple;
 }
 .user:nth-child(odd){
     margin-right: 15px;
@@ -18,4 +18,8 @@
 }
 .user p{
     margin-left: 10px;
+}
+.user.dark p{
+    margin-left: 10px;
+    color: white;
 }
