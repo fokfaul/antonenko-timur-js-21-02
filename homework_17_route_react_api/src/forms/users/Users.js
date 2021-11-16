@@ -6,7 +6,6 @@ import {User} from '../../components/user/User';
 import {Navigation} from '../../components/navigation/Navigation';
 import {init_nav, getNav, limitUsers} from '../../constants/navigation/common';
 import {LimitSelect} from '../../components/limitselect/LimitSelect';
-import {ThemeCheckbox} from '../../components/themecheckbox/ThemeCheckbox';
 
 import {ThemeContext} from '../../contexts/ThemeContext';
 import useOnceOnMount from '../../hooks/useOnceOnMount';
@@ -26,7 +25,7 @@ export const Users = () => {
                 loadUsers(max_pages-1, l);
                 return false;
             }
-            setNav(getNav(max_pages));
+            setNav(getNav(max_pages, p+1));
             setPage(p);
             setLimit(l);
             setApi(resp);
@@ -53,9 +52,8 @@ export const Users = () => {
                 />
               ))}
             </div>
-            <Navigation pages={nav_pages} moveToPage={moveToPage}/>
+            <Navigation current={page+1} pages={nav_pages} moveToPage={moveToPage}/>
             <LimitSelect changeLimit={changeLimit}/>
-            <ThemeCheckbox/>
           </Container>
       </section>
     );
