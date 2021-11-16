@@ -1,0 +1,15 @@
+.user-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 1px;
+}
+.user-info>*{
+    padding: 10px;
+}
+.user-info__img{
+    min-width: 200px;
+}

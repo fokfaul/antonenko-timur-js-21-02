@@ -1,0 +1,7 @@
+.users{
+    padding-bottom: 10px;
+}
+.users__list{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
