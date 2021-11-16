@@ -1,0 +1,16 @@
+.main-header .container{
+    margin-bottom: 10px;
+}
+.main-header__grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+}
+.main-header h1{
+    padding: 10px;
+    font-size: 40px;
+    line-height: 50px;
+    font-weight: bold;
+    color: black;
+    text-align: left;
+}
