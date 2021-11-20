@@ -22,9 +22,8 @@ const doPostRequest = (path, postObj, callback?, errorCallback?, finalCallback?)
     method: METHOD_POST,
     headers: new Headers({ [APP_ID_FIELD]: APP_ID_VALUE, 'Content-Type': 'application/json;charset=utf-8' }),
     body: JSON.stringify(postObj)
-  }).then((resp) => {
-        resp.json()
-    }).then(callback)
+  }).then((resp) => resp.json())
+    .then(callback)
     .catch(errorCallback)
     .finally(finalCallback);
 };
