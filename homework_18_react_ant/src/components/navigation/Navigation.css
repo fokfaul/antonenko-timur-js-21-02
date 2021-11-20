@@ -1,0 +1,25 @@
+.navigation{
+    display: inline-flex;
+}
+.navigation__page{
+    padding: 5px 10px;
+    margin-right: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 26px;
+    line-height: 34px;
+    cursor: pointer;
+}
+.navigation__page.active{
+    background-color: #e7e8e6;
+    cursor: default;
+}
+.navigation__page:not(.active):hover{
+	background-color: #32286c;
+	color: white;
+}
+.navigation__page:not(.active):active{
+	background-color: #32286c;
+	color: #585183;
+}

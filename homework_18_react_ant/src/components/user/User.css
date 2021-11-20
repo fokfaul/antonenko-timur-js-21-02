@@ -1,0 +1,25 @@
+.user{
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 1px;
+}
+.user.dark{
+    background-color: black;
+    box-shadow: 0 0 5px 1px purple;
+}
+.user:nth-child(odd){
+    margin-right: 15px;
+}
+.user img{
+    width: 72px;
+    height: 72px;
+}
+.user p{
+    margin-left: 10px;
+}
+.user.dark p{
+    margin-left: 10px;
+    color: white;
+}
