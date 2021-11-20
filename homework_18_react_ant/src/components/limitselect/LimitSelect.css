@@ -1,0 +1,14 @@
+.limit-form{
+    display: inline-block;
+    font-size: 20px;
+    line-height: 28px;
+}
+.limit-form label{
+    margin-right:10px;
+}
+.limit-form select{
+    width: 50px;
+    font-size: 20px;
+    line-height: 28px;
+    cursor: pointer;
+}
