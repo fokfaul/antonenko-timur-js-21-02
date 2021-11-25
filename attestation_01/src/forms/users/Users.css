@@ -1,0 +1,16 @@
+.users{
+    padding-bottom: 10px;
+}
+.users__list{
+    display: grid;
+    padding: 15px 0;
+    grid-template-columns: repeat(3, auto);
+    justify-content: space-between;
+    align-items: start;
+}
+.users__list .user:nth-child(n+4){
+    margin-top: 30px;
+}
+.users .ant-pagination{
+    text-align: right;
+}

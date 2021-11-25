@@ -1,0 +1,16 @@
+.user{
+    padding: 25px 45px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 0 10px 2px;
+}
+.user img{
+    width: 250px;
+    height: 250px;
+    border-radius: 15px;
+}
+.user p{
+    margin-top: 5px;
+    font-size: 26px;
+    line-height: 32px;
+}
