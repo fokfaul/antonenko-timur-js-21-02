@@ -22,7 +22,6 @@ time, mark, audio, video, div, button {
 }
 body {
     min-width: 450px;
-    margin: 0 5px;
 }
 
 code {

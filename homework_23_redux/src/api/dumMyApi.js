@@ -15,6 +15,7 @@ const doGetRequest = (path, searchParams?) => {
 };
 
 const doPostRequest = (path, postObj) => {
+  console.log(postObj);
   return fetch(BASE_URL+path, {
     method: METHOD_POST,
     headers: new Headers({ [APP_ID_FIELD]: APP_ID_VALUE, 'Content-Type': 'application/json;charset=utf-8' }),

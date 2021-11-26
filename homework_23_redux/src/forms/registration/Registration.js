@@ -1,11 +1,13 @@
 import './Registration.css';
-import {useState} from 'react';
 import {useHistory} from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Form, Input, Select, Button, DatePicker } from 'antd';
 import {Container} from '../../wrappers/container/Container';
 import {Loader} from '../../components/loader/Loader';
-import {addUser} from '../../api/dumMyApi';
 import {defaultAvatar} from '../../constants/api/common';
+import { addAction } from '../../actions/RegistrationActions';
+
 const { Option } = Select;
 
 const layout = {
@@ -46,25 +48,14 @@ const prefixSelector = (
     </Form.Item>
 );
 
-export const Registration = () => {
-  const [loading, setLoading] = useState(false);
+const Registration = ({loading, id, addUser, error}) => {
   const history = useHistory();
+  if(id)
+    history.push("/user/"+id);
 
   const onFinish = (form) => {
-    const callback = (resp) => {
-        console.log(resp);
-        setLoading(false);
-        if(!resp.error)
-            history.push("/user/"+resp.id);
-        else
-            alert(Object.values(resp.data).join(", "));
-    }
-    setLoading(true);
-    console.log(form);
     const [firstName, lastName] = form.name.split(" ");
-    let date = "";
-    if(form.birth)
-        date = (new Date(form.birth)).toISOString();
+    const date = form.birth? (new Date(form.birth)).toISOString() : "";
     addUser({
         title: form.prefix,
         firstName: firstName,
@@ -80,7 +71,7 @@ export const Registration = () => {
           state: form.state,
           country: form.country
         }
-    }, callback, console.error)
+    });
   };
 
   return (
@@ -131,3 +122,14 @@ export const Registration = () => {
     </Container></section>
   );
 };
+
+export default connect(
+  (state) => ({
+    loading: state.registration.loading,
+    id: state.registration.id,
+    error: state.registration.error,
+  }),
+  (dispatch) => ({
+    addUser: bindActionCreators(addAction, dispatch),
+  }),
+)(Registration);

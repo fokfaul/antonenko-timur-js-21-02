@@ -35,8 +35,6 @@ const loadError = (draft, e?) => {
 export default (state = initialState, action) => produce(
   state,
   (draft) => {
-    console.log(action);
-    console.log(draft);
     switch (action.type) {
       case LOAD_USERS: return load(draft, action.page, action.limit);
       case LOAD_USERS_SUCCESS: return loadSuccess(draft, action.usersList);
