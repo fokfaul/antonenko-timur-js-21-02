@@ -1,26 +1,25 @@
-import React, {useState} from 'react';
 import './UserPage.css';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import {Container} from '../../wrappers/container/Container';
-import {getUserById} from '../../api/dumMyApi';
 import {Loader} from '../../components/loader/Loader';
 import { useParams } from 'react-router-dom';
 import useScrollToTop from "../../hooks/useScrollToTop";
 import useOnceOnMount from '../../hooks/useOnceOnMount';
 import {dateMDY} from '../../hooks/date';
 import {BackButton} from '../../components/back_button/BackButton';
+import { loadAction } from '../../actions/UserPageActions';
 
-export const UserPage = ({darkTheme, userId, imgUrl, name}) => {
+const UserPage = ({user, loading, load, error}) => {
     useScrollToTop();
-    const [user, setUser] = useState({});
-    const [loading, setLoading] = useState(true);
+    console.log(user);
     const params = useParams();
     useOnceOnMount(() => {
-        setLoading(true);
-        getUserById(params.id, setUser, console.error, () => setLoading(false));
+        load(params.id);
     });
     return(
         <section className="user-page"><Container>
-            {loading? <Loader/> :
+            {loading? <Loader/> : user?
                 <div className="user-page__interface">
                     <BackButton/>
                     <div className="user-info">
@@ -43,7 +42,18 @@ export const UserPage = ({darkTheme, userId, imgUrl, name}) => {
                         </div>
                     </div>
                 </div>
-            }
+            : ""}
         </Container></section>
     );
 };
+
+export default connect(
+  (state) => { console.log(state); return {
+    user: state.userPage.userInfo,
+    loading: state.userPage.loading,
+    error: state.userPage.error,
+  }},
+  (dispatch) => ({
+    load: bindActionCreators(loadAction, dispatch),
+  }),
+)(UserPage);

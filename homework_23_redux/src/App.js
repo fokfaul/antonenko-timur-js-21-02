@@ -2,7 +2,7 @@ import './App.css';
 import {Header} from './components/header/Header';
 import Users from './forms/users/Users';
 import Registration from './forms/registration/Registration';
-import {UserPage} from './forms/user_page/UserPage';
+import UserPage from './forms/user_page/UserPage';
 
 import {Route, Switch, HashRouter, Redirect} from 'react-router-dom';
 
