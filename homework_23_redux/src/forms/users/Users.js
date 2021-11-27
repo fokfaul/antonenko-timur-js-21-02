@@ -1,3 +1,4 @@
+import React, {useContext} from 'react';
 import './Users.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -6,16 +7,15 @@ import {User} from '../../components/user/User';
 import {Navigation} from '../../components/navigation/Navigation';
 import {LimitSelect} from '../../components/limitselect/LimitSelect';
 import {Loader} from '../../components/loader/Loader';
-
+import {ThemeContext} from '../../contexts/ThemeContext';
 import { loadAction } from '../../actions/UsersActions';
 import useOnceOnMount from '../../hooks/useOnceOnMount';
 
 const Users = ({usersList, page, limit, paging, loading, load, error}) => {
     const moveToPage = (p) => {load(p, limit)};
     const changeLimit = (l) => {load(page, l)};
-
+    const themeContext = useContext(ThemeContext);
     useOnceOnMount(() => {load(0, 10);});
-
 
     return (
       <section className="users">
@@ -27,6 +27,7 @@ const Users = ({usersList, page, limit, paging, loading, load, error}) => {
                       imgUrl={elem.picture}
                       name={elem.title+". "+elem.firstName+" "+elem.lastName}
                       userId={elem.id}
+                      darkTheme={themeContext.darkTheme? "dark": ""}
                       key={index}
                     />
                   ))}
