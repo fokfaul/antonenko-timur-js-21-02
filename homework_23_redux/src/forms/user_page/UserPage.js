@@ -12,7 +12,6 @@ import { loadAction } from '../../actions/UserPageActions';
 
 const UserPage = ({user, loading, load, error}) => {
     useScrollToTop();
-    console.log(user);
     const params = useParams();
     useOnceOnMount(() => {
         load(params.id);
@@ -48,11 +47,11 @@ const UserPage = ({user, loading, load, error}) => {
 };
 
 export default connect(
-  (state) => { console.log(state); return {
+  (state) => ({
     user: state.userPage.userInfo,
     loading: state.userPage.loading,
     error: state.userPage.error,
-  }},
+  }),
   (dispatch) => ({
     load: bindActionCreators(loadAction, dispatch),
   }),

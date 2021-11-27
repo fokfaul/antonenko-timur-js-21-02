@@ -11,16 +11,15 @@ const doGetRequest = (path, searchParams?) => {
   return fetch(url.toString(), {
     method: METHOD_GET,
     headers: new Headers({ [APP_ID_FIELD]: APP_ID_VALUE, }),
-  }).then((resp) => resp.json());
+  }).then((resp) => resp.json()).catch((resp) => resp.json());
 };
 
 const doPostRequest = (path, postObj) => {
-  console.log(postObj);
   return fetch(BASE_URL+path, {
     method: METHOD_POST,
     headers: new Headers({ [APP_ID_FIELD]: APP_ID_VALUE, 'Content-Type': 'application/json;charset=utf-8' }),
     body: JSON.stringify(postObj)
-  }).then((resp) => resp.json());
+  }).then((resp) => resp.json()).catch((resp) => resp.json());
 };
 
 export const getUsersList = (page, limit) => doGetRequest(

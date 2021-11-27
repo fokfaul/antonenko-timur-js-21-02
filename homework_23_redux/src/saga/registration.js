@@ -4,7 +4,6 @@ import { addUser } from '../api/dumMyApi';
 import { addErrorAction, addSuccessAction } from '../actions/RegistrationActions';
 
 function* addUsers(action) {
-  console.log(action);
   try {
     // Верный пример запроса к нескольким API (запросы производятся параллельно)
     const [apiResult] = yield all([ // Паралельный вызов
@@ -13,10 +12,11 @@ function* addUsers(action) {
         action.userInfo, // Параметры для вызова метода
       ),
     ]);
-
-    yield put( // Отправка action в store
-      addSuccessAction(apiResult), // action creater для action'a успешной загрузки
-    );
+    if("id" in apiResult){
+        yield put(addSuccessAction(apiResult));
+    } else if ('error' in apiResult && apiResult.data) {
+        yield put(addErrorAction(Object.values(apiResult.data).join('<br/>')));
+    }
   } catch (e) {
     yield put(addErrorAction(e.toString()));
   }
