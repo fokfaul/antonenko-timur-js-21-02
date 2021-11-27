@@ -1,10 +1,11 @@
 import produce from 'immer';
-import { ADD_USER, ADD_USER_ERROR, ADD_USER_SUCCESS } from '../constants/actions/registration';
+import { ADD_USER, ADD_USER_ERROR, ADD_USER_SUCCESS, ADD_USER_RESET } from '../constants/actions/registration';
 
 const initialState = {
   loading: false,
   userInfo: {},
-  id: false
+  id: false,
+  error: ""
 };
 
 const add = (draft, userInfo) => {
@@ -27,6 +28,7 @@ export default (state = initialState, action) => produce(
   state,
   (draft) => {
     switch (action.type) {
+      case ADD_USER_RESET: return initialState;
       case ADD_USER: return add(draft, action.userInfo);
       case ADD_USER_SUCCESS: return addSuccess(draft, action.user);
       case ADD_USER_ERROR: return addError(draft, action.error);

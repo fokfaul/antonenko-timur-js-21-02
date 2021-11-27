@@ -1,4 +1,5 @@
 import './Registration.css';
+import React, { useEffect } from 'react';
 import {useHistory} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -6,7 +7,7 @@ import { Form, Input, Select, Button, DatePicker } from 'antd';
 import {Container} from '../../wrappers/container/Container';
 import {Loader} from '../../components/loader/Loader';
 import {defaultAvatar} from '../../constants/api/common';
-import { addAction } from '../../actions/RegistrationActions';
+import { addAction, resetAction } from '../../actions/RegistrationActions';
 
 const { Option } = Select;
 
@@ -48,10 +49,22 @@ const prefixSelector = (
     </Form.Item>
 );
 
-const Registration = ({loading, id, addUser, error}) => {
+const Registration = ({loading, id, addUser, error, resetState}) => {
   const history = useHistory();
-  if(id)
-    history.push("/user/"+id);
+    useEffect(() => {
+        if(id)
+        {
+            history.push("/user/"+id);
+            resetState();
+            return;
+        }
+        if(error)
+        {
+            resetState();
+            alert(error);
+        }
+    }, [id, error]);
+
 
   const onFinish = (form) => {
     const [firstName, lastName] = form.name.split(" ");
@@ -131,5 +144,6 @@ export default connect(
   }),
   (dispatch) => ({
     addUser: bindActionCreators(addAction, dispatch),
+    resetState: bindActionCreators(resetAction, dispatch),
   }),
 )(Registration);
