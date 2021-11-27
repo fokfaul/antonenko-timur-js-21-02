@@ -1,0 +1,15 @@
+.theme-checkbox{
+    display: inline-block;
+    padding-right: 25px;
+    font-size: 26px;
+    line-height: 34px;
+    text-align: right;
+}
+.theme-checkbox label{
+    cursor: pointer;
+}
+#theme-checkbox__input{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
