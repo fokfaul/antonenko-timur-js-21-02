@@ -1,0 +1,12 @@
+.main-header{
+    padding-top: 10px;
+    margin-bottom: 20px;
+}
+.main-header__grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+}
+.main-header__grid .ant-menu{
+    border-radius: 5px;
+}
