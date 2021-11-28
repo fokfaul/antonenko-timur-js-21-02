@@ -1,0 +1,17 @@
+.main-footer{
+    padding: 10px 5px;
+    margin-top: 20px;
+    background: white;
+    font-size: 24px;
+    line-height: 32px;
+    box-shadow: 0 0 5px 1px;
+}
+.footer__copyright{
+    text-align: left;
+}
+/*
+.main-footer__flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}*/

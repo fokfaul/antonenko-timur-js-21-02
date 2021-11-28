@@ -1,17 +1,10 @@
 import './User.css';
 import {Helper} from '../../wrappers/helper/Helper';
-import { useHistory } from 'react-router-dom';
 
 export const User = ({userId, imgUrl, name}) => {
-    const history = useHistory();
-
-    const moveToUserPage = () => {
-        history.push("/user/"+userId);
-    }
-
     return(
-        <div className={"user"} onClick={moveToUserPage}>
-            <Helper userId={userId}>
+        <div className="user">
+            <Helper objId={userId}>
                 <img src={imgUrl} alt={name}/>
                 <p>{name}</p>
             </Helper>

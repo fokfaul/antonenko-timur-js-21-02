@@ -1,13 +1,15 @@
 .user{
-    padding: 25px 45px;
+    min-width: 320px;
+    padding: 25px 25px;
     background-color: white;
     border-radius: 15px;
     box-shadow: 0 0 10px 2px;
 }
 .user img{
-    width: 250px;
-    height: 250px;
     border-radius: 15px;
+    min-height: 150px;
+    min-weight: 150px;
+    height: 20vh;
 }
 .user p{
     margin-top: 5px;

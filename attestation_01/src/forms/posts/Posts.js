@@ -1,16 +1,16 @@
-import './Users.css';
+import './Posts.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { loadAction } from '../../actions/UsersActions';
+import { loadAction } from '../../actions/PostsActions';
 import {Container} from '../../wrappers/container/Container';
-import {User} from '../../components/user/User';
+import {Post} from '../../components/post/Post';
 import {Loader} from '../../components/loader/Loader';
 import { Pagination } from 'antd';
 
 import useOnceOnMount from '../../hooks/useOnceOnMount';
 import useScrollToTop from '../../hooks/useScrollToTop';
 
-const Users = ({usersList, page, limit, total, loading, load, error}) => {
+const Posts = ({postsList, page, limit, total, loading, load, error}) => {
     useScrollToTop();
 
     const moveToPage = (toPage, pageSize) => load(toPage-1, limit);
@@ -18,17 +18,12 @@ const Users = ({usersList, page, limit, total, loading, load, error}) => {
     useOnceOnMount(() => load(page, limit));
 
     return (
-      <section className="users">
+      <section className="posts">
           {loading? <Loader/> : error? alert(error) :
               <Container>
-                <div className="users__list">
-                  {usersList.map((elem, index) => (
-                    <User
-                      imgUrl={elem.picture}
-                      name={elem.title+". "+elem.firstName+" "+elem.lastName}
-                      userId={elem.id}
-                      key={index}
-                    />
+                <div className="posts__list">
+                  {postsList.map((elem, index) => (
+                    <Post post={elem} key={index}/>
                   ))}
                 </div>
                 <Pagination size="small" defaultCurrent={page+1} pageSize={limit} total={total} showSizeChanger={false}
@@ -41,14 +36,14 @@ const Users = ({usersList, page, limit, total, loading, load, error}) => {
 
 export default connect(
   (state) => ({
-    usersList: state.users.usersList,
-    page: state.users.page,
-    total: state.users.total,
-    loading: state.users.loading,
-    limit: state.users.limit,
-    error: state.users.error,
+    postsList: state.posts.postsList,
+    page: state.posts.page,
+    total: state.posts.total,
+    loading: state.posts.loading,
+    limit: state.posts.limit,
+    error: state.posts.error,
   }),
   (dispatch) => ({
     load: bindActionCreators(loadAction, dispatch),
   }),
-)(Users);
+)(Posts);

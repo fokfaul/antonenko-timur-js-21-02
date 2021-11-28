@@ -1,6 +1,5 @@
 .component-with-helper {
     position: relative;
-    cursor: pointer;
 }
 
 .component-with-helper__helper {
