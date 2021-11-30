@@ -3,6 +3,7 @@
     background-color: white;
     border-radius: 15px;
     box-shadow: 0 0 10px 2px;
+    cursor: pointer;
 }
 .post__owner{
     display: grid;
@@ -14,7 +15,7 @@
     grid-row-start: 1;
     grid-row-end: 3;
     height: 50px;
-    weight: 50px;
+    width: 50px;
     border-radius: 25px;
     margin-right: 10px;
 }
@@ -24,12 +25,7 @@
 .post__image{
     padding: 10px 0;
     max-height: 210px;
-    max-weight: 300px;
+    max-width: 300px;
     height: 25vh;
     border-radius: 25px;
-}
-.user p{
-    margin-top: 5px;
-    font-size: 26px;
-    line-height: 32px;
 }

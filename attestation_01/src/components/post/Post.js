@@ -2,12 +2,12 @@ import './Post.css';
 import {Helper} from '../../wrappers/helper/Helper';
 import {dateMDY} from '../../hooks/date';
 
-export const Post = ({post}) => {
+export const Post = ({post, openWindow}) => {
     return(
-        <div className="post">
-            <Helper objId={post.id}>
+        <div className="post" onClick={() => {openWindow(post.id)}}>
+            <Helper objId={post.owner.id}>
                 <div className="post__owner">
-                    <img className="post__owner__image" src={post.owner.picture} alt="post.owner.firstName"/>
+                    <img className="post__owner__image" src={post.owner.picture} alt={post.owner.firstName}/>
                     <p className="post__owner__name">
                         {post.owner.title+". "+post.owner.firstName+" "+post.owner.lastName}
                     </p>
@@ -19,12 +19,3 @@ export const Post = ({post}) => {
         </div>
     );
 };
-
-/*
-User.defaultProps = {
-    darkTheme: "",
-    userId: "none",
-    imgUrl: "",
-    name: "Незнакомец"
-}
-*/

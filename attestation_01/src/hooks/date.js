@@ -7,6 +7,5 @@ export const dateMDY = (date_iso) => {
       hour: 'numeric',
       minute: 'numeric'
     };
-    console.log(d.toLocaleString("ru", options));
     return d.toLocaleString("ru", options).split(", ").join(" в ");
 }

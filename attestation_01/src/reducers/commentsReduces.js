@@ -1,26 +1,27 @@
 import produce from 'immer';
-import { LOAD_POSTS, LOAD_POSTS_ERROR, LOAD_POSTS_SUCCESS } from '../constants/actions/posts';
+import { LOAD_COMMENTS, LOAD_COMMENTS_ERROR, LOAD_COMMENTS_SUCCESS } from '../constants/actions/comments';
 
 const initialState = {
-  postsList: [],
+  commentsList: [],
   page: 0,
   total: 0,
-  limit: 6,
+  limit: 20,
   loading: false,
   error: "",
 };
 
-const load = (draft, page?, limit?) => {
+const load = (draft, id, page?, limit?) => {
   draft.loading = true;
+  draft.page = id;
   draft.page = page || 0;
-  draft.limit = limit || 6;
+  draft.limit = limit || 20;
   return draft;
 };
 const loadSuccess = (draft, resp?) => {
   draft.total = resp.total;
   draft.page = resp.page || 0;
-  draft.limit = resp.limit || 6;
-  draft.postsList = resp.data || [];
+  draft.limit = resp.limit || 20;
+  draft.commentsList = resp.data || [];
   draft.loading = false;
   return draft;
 };
@@ -34,9 +35,9 @@ export default (state = initialState, action) => produce(
   state,
   (draft) => {
     switch (action.type) {
-      case LOAD_POSTS: return load(draft, action.page, action.limit);
-      case LOAD_POSTS_SUCCESS: return loadSuccess(draft, action.postsList);
-      case LOAD_POSTS_ERROR: return loadError(draft, action.error);
+      case LOAD_COMMENTS: return load(draft, action.id, action.page, action.limit);
+      case LOAD_COMMENTS_SUCCESS: return loadSuccess(draft, action.commentsList);
+      case LOAD_COMMENTS_ERROR: return loadError(draft, action.error);
       default: return state;
     }
   },

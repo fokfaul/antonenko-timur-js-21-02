@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { loadAction } from '../../actions/UsersActions';
 import {Container} from '../../wrappers/container/Container';
 import {User} from '../../components/user/User';
-import {Loader} from '../../components/loader/Loader';
+import {WinLoader} from '../../windows/loader/WinLoader';
 import { Pagination } from 'antd';
 
 import useOnceOnMount from '../../hooks/useOnceOnMount';
@@ -19,7 +19,7 @@ const Users = ({usersList, page, limit, total, loading, load, error}) => {
 
     return (
       <section className="users">
-          {loading? <Loader/> : error? alert(error) :
+          {loading? <WinLoader/> : error? alert(error) :
               <Container>
                 <div className="users__list">
                   {usersList.map((elem, index) => (
