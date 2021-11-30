@@ -1,5 +1,5 @@
 import './Comment.css';
-import {dateMDY} from '../../hooks/date';
+import {dateDMT} from '../../hooks/date';
 
 export const Comment = ({comment}) => {
     return(
@@ -9,7 +9,7 @@ export const Comment = ({comment}) => {
                 {comment.owner.title+". "+comment.owner.firstName+" "+comment.owner.lastName}
             </p>
             <p className="post-comment__text">{comment.message}</p>
-            <p className="post-comment__data">{dateMDY(comment.publishDate)}</p>
+            <p className="post-comment__data">{dateDMT(comment.publishDate)}</p>
         </div>
     );
 };

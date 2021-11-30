@@ -26,10 +26,13 @@ export const getUsersList = (page, limit) => doGetRequest(
         USER_URL,
         {[PAGE_FIELD]: page.toString(), [LIMIT_FIELD]: limit.toString()}
 );
-export const getPostsList = (page, limit) => doGetRequest(
-        POST_URL,
+export const getPostsList = (page, limit, id?) => {
+    const url = id? `${USER_URL}/${id}/post` : POST_URL;
+    return doGetRequest(
+        url,
         {[PAGE_FIELD]: page.toString(), [LIMIT_FIELD]: limit.toString()}
-);
+    );
+}
 export const getCommentsList = (id, page, limit) => doGetRequest(
         `${POST_URL}/${id}/comment`,
         {[PAGE_FIELD]: page.toString(), [LIMIT_FIELD]: limit.toString()}
@@ -37,11 +40,5 @@ export const getCommentsList = (id, page, limit) => doGetRequest(
 
 export const getUserById = (id) => doGetRequest(`${USER_URL}/${id}`);
 export const getPostById = (id) => doGetRequest(`${POST_URL}/${id}`);
-
-/*.then(
-    (resp_post) => doGetRequest(`${POST_URL}/${id}`/comment).then(
-        (resp_comments) => ({"postInfo": resp_post, "commentList": resp_comments})
-    )
-);*/
 
 export const addUser = (userObj) => doPostRequest("user/create", userObj);

@@ -1,6 +1,7 @@
 import './Header.css';
 import { useHistory } from 'react-router-dom';
 import {Container} from '../../wrappers/container/Container';
+import Login from '../login/Login';
 
 export const Header = () => {
     const history = useHistory();
@@ -23,10 +24,7 @@ export const Header = () => {
                         <div className="main-header__navigation__img"/><p>Посты</p>
                     </div>
                 </div>
-                <div className="user-login">
-                    <p>Вход</p>
-                    <p>Регистрация</p>
-                </div>
+                <Login/>
             </div>
         </Container></header>
     );

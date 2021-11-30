@@ -10,6 +10,7 @@ function* loadPosts(action) {
         getPostsList,
         action.page,
         action.limit,
+        action.id
       ),
     ]);
 

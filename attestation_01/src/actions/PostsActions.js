@@ -1,9 +1,10 @@
 import { LOAD_POSTS, LOAD_POSTS_ERROR, LOAD_POSTS_SUCCESS } from '../constants/actions/posts';
 
-export const loadAction = (page?, limit?) => ({
+export const loadAction = (page?, limit?, id?) => ({
   type: LOAD_POSTS,
   page: page,
-  limit: limit
+  limit: limit,
+  id: id
 });
 
 export const loadSuccessAction = (posts) => ({

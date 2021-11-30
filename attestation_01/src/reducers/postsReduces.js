@@ -8,12 +8,14 @@ const initialState = {
   limit: 6,
   loading: false,
   error: "",
+  id: ""
 };
 
-const load = (draft, page?, limit?) => {
+const load = (draft, page?, limit?, id?) => {
   draft.loading = true;
   draft.page = page || 0;
   draft.limit = limit || 6;
+  draft.id = id || "";
   return draft;
 };
 const loadSuccess = (draft, resp?) => {

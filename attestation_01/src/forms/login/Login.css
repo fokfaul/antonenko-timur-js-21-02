@@ -1,0 +1,27 @@
+.login{
+    padding-top: 20vh;
+}
+.login .container{
+    max-width: 800px;
+    padding: 25px;
+    background-color: white;
+    border-radius: 25px;
+    box-shadow: 0 0 5px 1px;
+}
+.login h2{
+    padding: 10px;
+}
+#login__form{
+    margin: 0 auto;
+    max-width: 640px;
+    text-align: center;
+}
+#login__form .ant-form-item-control{
+    text-align: left;
+}
+.login__registration{
+    cursor: pointer;
+}
+.login__registration:hover{
+    text-decoration: underline;
+}

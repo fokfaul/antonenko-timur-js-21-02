@@ -17,7 +17,10 @@ const Comments = ({ commentsList, page, limit, total, load, error, loading, idPo
     const getNewComments = (p) => load(idPost, p, limit);
     const nextComments = () => {
         if((counter+1)*limitView>limit)
+        {
+            setCounter(1);
             getNewComments(page+1);
+        }
         else
             setCounter(counter+1);
     };
@@ -25,7 +28,10 @@ const Comments = ({ commentsList, page, limit, total, load, error, loading, idPo
         if(counter>1)
            setCounter(counter-1);
         else
+        {
            getNewComments(page-1);
+           setCounter(limit/limitView);
+        }
     };
     useOnceOnMount(() => load(idPost, page, limit));
     return (

@@ -1,0 +1,84 @@
+.profile-window{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin-top: 10vh;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    max-width: 640px;
+    border-radius: 25px;
+    box-shadow: 0 0 5px 1px;
+}
+
+/*.post-window__header{
+    display: inline-flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.post-window__owner{
+    display: inline-flex;
+    align-items: center;
+    text-align: left;
+}
+.post-window__owner__image{
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    margin-right: 10px;
+}
+.post-window__owner__name{
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: bold;
+}
+.post-window__data{
+    font-size: 16px;
+    line-height: 24px;
+    padding-right: 20px;
+}
+.post-window__image{
+    padding: 10px 0;
+    max-height: 400px;
+    max-width: 600px;
+    border-radius: 25px;
+}
+
+.post-window__text{
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: left;
+}*/
+
+
+/*Закрывающая кнопка*/
+.profile-window-close{
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    height: 40px;
+    width: 40px;
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color: grey;
+    cursor: pointer;
+}
+.profile-window-close:after{
+    content: "X";
+    font-size: 30px;
+    line-height: 36px;
+    font-weight: bold;
+    color: white;
+}
+.profile-window-close:hover{
+    background-color: #6d6b82;
+}
+.profile-window-close:active:after{
+    color: red;
+}
+

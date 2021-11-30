@@ -23,6 +23,9 @@
 .main-header__navigation>div{
     cursor: pointer;
 }
+.main-header__navigation>div:hover{
+    text-decoration: underline;
+}
 .main-header__navigation>div:not(:last-child){
     margin-right: 25px;
 }
@@ -43,16 +46,4 @@
 }
 .main-header__navigation__users div{
     background-image: url("./users.png");
-}
-
-.user-login>p:not(:last-child){
-    margin-right: 20px;
-}
-.user-login>p:not(:last-child):after{
-    content: " ";
-    background: grey;
-    width: 2px;
-    height: 32px;
-    float: right;
-    margin-right: -10px;
 }
