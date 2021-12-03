@@ -6,12 +6,16 @@
     line-height: 32px;
     box-shadow: 0 0 5px 1px;
 }
+#dark .main-footer{
+    background: #2d3748;
+}
+
 .footer__copyright{
     text-align: left;
 }
-/*
-.main-footer__flex{
+
+.main-footer .container{
     display: flex;
     align-items: center;
     justify-content: space-between;
-}*/
+}

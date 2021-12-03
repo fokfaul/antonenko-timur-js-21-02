@@ -33,6 +33,7 @@ const Login = ({id, user, login, logout, error}) => {
         localStorage.setItem('idUser', "");
         setIdUser("");
         logout();
+        history.push("/");
     }
 
     return (

@@ -16,6 +16,9 @@
   border: 3px solid black;
   border-radius: 100%;
 }
+#dark .loader__body span{
+    border: 3px solid white;
+}
 .loader__1lvl,
 .loader__2lvl,
 .loader__3lvl {

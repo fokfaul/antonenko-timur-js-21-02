@@ -6,6 +6,9 @@
     line-height: 32px;
     box-shadow: 0 0 5px 1px;
 }
+#dark .main-header{
+    background: #2d3748;
+}
 .main-header__flex{
     display: flex;
     align-items: center;
@@ -40,6 +43,10 @@
     width: 32px;
     height: 32px;
     margin-right: 5px;
+}
+#dark .main-header__navigation__img{
+    background-color: white;
+    border-radius: 10px;
 }
 .main-header__navigation__posts div{
     background-image: url("./posts.png");

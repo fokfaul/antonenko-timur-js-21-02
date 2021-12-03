@@ -9,6 +9,12 @@
     width: 100%;
 }
 
+#dark .arrow-top, #dark .arrow-bottom {
+    background-color: white;
+    height: 4px;
+    width: 100%;
+}
+
 .arrow-top {
     margin-top: 60px;
     transform: rotate(45deg);
@@ -29,7 +35,7 @@
     transform: rotate(-45deg);
     transform-origin: bottom left;
 }
-.arrow:hover div{
+.arrow:hover div, #dark .arrow:hover div{
     background-color: #6a5acd
 }
 .arrow:active {

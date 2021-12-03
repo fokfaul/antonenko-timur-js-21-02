@@ -8,8 +8,15 @@
     border-radius: 25px;
     box-shadow: 0 0 5px 1px;
 }
+#dark .login .container{
+    background-color: #7f858d;
+    box-shadow: none;
+}
 .login h2{
     padding: 10px;
+}
+#dark .login h2{
+    color: white;
 }
 #login__form{
     margin: 0 auto;

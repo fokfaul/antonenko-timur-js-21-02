@@ -8,6 +8,10 @@
     box-shadow: 0 0 5px 1px;
     text-align: left;
 }
+#dark .post-comment{
+    background-color: #7f858d;
+    box-shadow: none;
+}
 .post-comment__owner__image{
     grid-row-start: 1;
     grid-row-end: 4;

@@ -3,64 +3,58 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
     margin-top: 10vh;
     margin-left: auto;
     margin-right: auto;
     background-color: white;
-    max-width: 640px;
+    width: 320px;
     border-radius: 25px;
     box-shadow: 0 0 5px 1px;
 }
-
-/*.post-window__header{
-    display: inline-flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
+#dark .profile-window{
+    background-color: #2d3748;
 }
-
-.post-window__owner{
-    display: inline-flex;
-    align-items: center;
-    text-align: left;
+.profile-window__user-img{
+    width: 200px;
+    border-radius: 15px;
 }
-.post-window__owner__image{
-    height: 50px;
-    width: 50px;
-    border-radius: 25px;
+.profile-window__edit-img{
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    font-size: 16px;
+    line-height: 24px;
+}
+.profile-window__edit-img>*:not(:last-child){
+    margin-right: 15px;
+}
+.profile-window__edit-img>*:not(:last-child):after{
+    content: " ";
+    background: grey;
+    width: 2px;
+    height: 24px;
+    float: right;
+    margin-left: 15px;
+}
+.profile-window__edit-img label{
+    cursor: pointer;
+}
+.profile-window__edit-img label:hover{
+    text-decoration: underline;
+}
+.user-login__img{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
     margin-right: 10px;
 }
-.post-window__owner__name{
-    font-size: 20px;
-    line-height: 24px;
-    font-weight: bold;
-}
-.post-window__data{
-    font-size: 16px;
-    line-height: 24px;
-    padding-right: 20px;
-}
-.post-window__image{
-    padding: 10px 0;
-    max-height: 400px;
-    max-width: 600px;
-    border-radius: 25px;
-}
-
-.post-window__text{
-    margin-bottom: 10px;
-    font-size: 16px;
-    line-height: 24px;
-    text-align: left;
-}*/
-
 
 /*Закрывающая кнопка*/
 .profile-window-close{
     position: absolute;
-    top: -20px;
-    right: -20px;
+    top: 0px;
+    right: 0px;
     height: 40px;
     width: 40px;
     border: 2px solid black;
@@ -80,5 +74,8 @@
 }
 .profile-window-close:active:after{
     color: red;
+}
+#photo{
+    display: none;
 }
 

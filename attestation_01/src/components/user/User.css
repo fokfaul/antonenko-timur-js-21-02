@@ -16,3 +16,8 @@
     font-size: 26px;
     line-height: 32px;
 }
+
+#dark .user{
+    background-color: #7f858d;
+    box-shadow: none;
+}

@@ -4,6 +4,10 @@
     border-radius: 15px;
     box-shadow: 0 0 10px 2px;
 }
+#dark .profile-post{
+    background-color: #7f858d;
+    box-shadow: none;
+}
 .profile-post__image{
     padding: 10px 0;
     max-height: 200px;

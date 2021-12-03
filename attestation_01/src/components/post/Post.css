@@ -5,6 +5,10 @@
     box-shadow: 0 0 10px 2px;
     cursor: pointer;
 }
+#dark .post{
+    background-color: #7f858d;
+    box-shadow: none;
+}
 .post__owner{
     display: grid;
     grid-template-columns: 60px auto;

@@ -47,6 +47,7 @@ export default connect(
     loading: state.users.loading,
     limit: state.users.limit,
     error: state.users.error,
+    theme: state.theme.theme
   }),
   (dispatch) => ({
     load: bindActionCreators(loadAction, dispatch),

@@ -13,6 +13,10 @@
     box-shadow: 0 0 5px 1px;
 }
 
+#dark .post-window{
+    background-color: #2d3748;
+}
+
 .post-window__header{
     display: inline-flex;
     width: 100%;

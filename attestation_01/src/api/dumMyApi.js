@@ -1,7 +1,7 @@
 import {
   APP_ID_FIELD, APP_ID_VALUE, USER_URL, LIMIT_FIELD, PAGE_FIELD, BASE_URL, POST_URL
 } from '../constants/api/dumMyApi';
-import { METHOD_GET, METHOD_POST } from '../constants/api/common';
+import { METHOD_GET, METHOD_POST, METHOD_PUT } from '../constants/api/common';
 
 const doGetRequest = (path, searchParams?) => {
   const url = new URL(path, BASE_URL);
@@ -17,6 +17,14 @@ const doGetRequest = (path, searchParams?) => {
 const doPostRequest = (path, postObj) => {
   return fetch(BASE_URL+path, {
     method: METHOD_POST,
+    headers: new Headers({ [APP_ID_FIELD]: APP_ID_VALUE, 'Content-Type': 'application/json;charset=utf-8' }),
+    body: JSON.stringify(postObj)
+  }).then((resp) => resp.json());
+};
+
+const doPutRequest = (path, postObj) => {
+  return fetch(BASE_URL+path, {
+    method: METHOD_PUT,
     headers: new Headers({ [APP_ID_FIELD]: APP_ID_VALUE, 'Content-Type': 'application/json;charset=utf-8' }),
     body: JSON.stringify(postObj)
   }).then((resp) => resp.json());
@@ -42,3 +50,5 @@ export const getUserById = (id) => doGetRequest(`${USER_URL}/${id}`);
 export const getPostById = (id) => doGetRequest(`${POST_URL}/${id}`);
 
 export const addUser = (userObj) => doPostRequest("user/create", userObj);
+
+export const updateUser = (id, userObj) => doPutRequest(`${USER_URL}/${id}`, userObj)
