@@ -73,3 +73,39 @@
     background-color: white;
     border-radius: 10px;
 }
+
+@media (max-width: 740px) {
+    .profile__posts__list{
+        grid-template-columns: repeat(1, auto);
+        grid-template-rows: repeat(2, auto);
+    }
+    .profile__posts__list .profile-post:not(:last-child){
+        margin-right: 0px;
+        margin-bottom: 20px;
+    }
+    .profile__user__edit__button p{
+        display: none;
+    }
+}
+@media (max-width: 620px) {
+    .profile__user{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .profile__user__info{
+        order: 1;
+    }
+    .profile__user__edit{
+        width: 40px;
+        flex-grow: initial;
+    }
+    .profile__user__info{
+        margin-top: 10px;
+    }
+}
+@media (max-width: 400px) {
+    .profile__user__info p{
+        font-size: 16px;
+        line-height: 24px;
+    }
+}

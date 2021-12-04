@@ -54,3 +54,17 @@
 .main-header__navigation__users div{
     background-image: url("./users.png");
 }
+
+@media (max-width: 850px) {
+    .main-header__logo p{
+        display: none;
+    }
+}
+@media (max-width: 670px) {
+    .main-header__navigation p{
+        display: none;
+    }
+    .main-header__navigation>div:not(:last-child){
+        margin-right: 10px;
+    }
+}

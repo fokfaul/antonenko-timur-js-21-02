@@ -4,6 +4,7 @@
     border-radius: 15px;
     box-shadow: 0 0 10px 2px;
     cursor: pointer;
+    max-width: 350px;
 }
 #dark .post{
     background-color: #7f858d;
@@ -28,8 +29,13 @@
 }
 .post__image{
     padding: 10px 0;
+    min-height: 150px;
     max-height: 210px;
     max-width: 300px;
     height: 25vh;
     border-radius: 25px;
+}
+
+@media (max-width: 750px) {
+
 }

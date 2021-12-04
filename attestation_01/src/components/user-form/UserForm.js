@@ -6,7 +6,7 @@ import moment from 'moment';
 const { Option } = Select;
 
 const layout = {
-  labelCol: { span: 9 },
+  labelCol: { span: 5 },
   wrapperCol: { span: 15 },
 };
 
@@ -113,7 +113,7 @@ export const UserForm = ({callback, mini, user}) => {
       ]}>
         <Input />
       </Form.Item>
-      <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 9 }}>
+      <Form.Item labelCol={{ span: 0 }} wrapperCol={{ span: 24 }}>
         <Button type="primary" htmlType="submit">
           {submitName}
         </Button>

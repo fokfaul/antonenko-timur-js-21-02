@@ -48,7 +48,7 @@ const Login = ({loading, id, login, error, resetState}) => {
           }]}>
             <Input placeholder="Введите свой ID" />
           </Form.Item>
-          <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 11 }}>
+          <Form.Item labelCol={{ span: 0 }} wrapperCol={{ span: 24 }}>
             <Button type="primary" htmlType="submit">
               Войти
             </Button>

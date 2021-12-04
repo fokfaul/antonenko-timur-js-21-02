@@ -25,3 +25,15 @@
     border-radius: 20px;
     margin-right: 10px;
 }
+
+@media (max-width: 440px) {
+    .user-login__info p{
+        display: none;
+    }
+    .user-login p{
+        font-size: 14px;
+    }
+    .user-login__info .user-login__img{
+        margin-right: 0;
+    }
+}

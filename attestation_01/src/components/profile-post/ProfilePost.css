@@ -3,6 +3,7 @@
     background-color: white;
     border-radius: 15px;
     box-shadow: 0 0 10px 2px;
+    min-width: 300px;
 }
 #dark .profile-post{
     background-color: #7f858d;

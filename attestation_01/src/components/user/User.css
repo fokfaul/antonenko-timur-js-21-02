@@ -1,5 +1,5 @@
 .user{
-    min-width: 320px;
+    width: 320px;
     padding: 25px 25px;
     background-color: white;
     border-radius: 15px;
@@ -20,4 +20,9 @@
 #dark .user{
     background-color: #7f858d;
     box-shadow: none;
+}
+@media (max-width: 350px) {
+    .user{
+        width: 300px;
+    }
 }
