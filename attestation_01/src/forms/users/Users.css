@@ -15,7 +15,7 @@
     justify-content: space-between;
     align-items: start;
 }
-.users__list .user:nth-child(n+4){
+.users__list>*:nth-child(n+4){
     margin-top: 30px;
 }
 .users .ant-pagination{
@@ -33,7 +33,7 @@
         grid-template-rows: repeat(3, auto);
         justify-content: space-around;
     }
-    .users__list .user:nth-child(n+3){
+    .users__list>*:nth-child(n+3){
         margin-top: 30px;
     }
 }
@@ -44,7 +44,7 @@
         grid-template-rows: repeat(6, auto);
         justify-content: space-around;
     }
-    .users__list .user:nth-child(n+2){
+    .users__list>*:nth-child(n+2){
         margin-top: 30px;
     }
 }

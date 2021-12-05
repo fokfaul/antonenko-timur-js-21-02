@@ -2,7 +2,7 @@ import produce from 'immer';
 import { CHANGE_THEME, RESET_THEME } from '../constants/actions/theme';
 
 const initialState = {
-  theme: "",
+  theme: localStorage.getItem("theme") || "",
 };
 
 const change = (draft, theme) => {

@@ -15,13 +15,15 @@ import login from '../reducers/loginReduces';
 import loginWatcher from '../saga/login';
 import updateUser from '../reducers/updateUserReduces';
 import updateUserWatcher from '../saga/update-user';
+import profile from '../reducers/profileReduces';
+import profileWatcher from '../saga/profile';
 
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
   combineReducers(
     {
-      users, posts, postPage, comments, registration, login, updateUser, theme
+      users, posts, postPage, comments, registration, login, updateUser, theme, profile
     },
   ),
   applyMiddleware(sagaMiddleware),
@@ -34,5 +36,6 @@ sagaMiddleware.run(commentsWatcher);
 sagaMiddleware.run(registrationWatcher);
 sagaMiddleware.run(loginWatcher);
 sagaMiddleware.run(updateUserWatcher);
+sagaMiddleware.run(profileWatcher);
 
 export default store;

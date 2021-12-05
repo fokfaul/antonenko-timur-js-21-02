@@ -19,7 +19,6 @@ const loginSuccess = (draft, resp) => {
   return draft;
 };
 const loginError = (draft, e?) => {
-  console.log("Поймал ошибку");
   draft.loading = false;
   draft.error = e || "Ошибка входа";
   return draft;

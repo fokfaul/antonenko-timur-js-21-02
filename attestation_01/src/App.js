@@ -29,7 +29,7 @@ const App = ({theme}) => {
                     <Route path="/login">
                         <Login/>
                     </Route>
-                    <Route path="/profile">
+                    <Route path="/profile/:id">
                         <Profile/>
                     </Route>
                     <Redirect from="/" to="/users"/>
