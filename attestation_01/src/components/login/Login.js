@@ -42,7 +42,7 @@ const Login = ({id, user, login, logout, error}) => {
                 <div className="user-login">
                     <div className="user-login__info">
                         <img className="user-login__img" src={user.picture} alt={user.id}/>
-                        <p onClick={()=>{moveToPage("/profile")}}>{user.firstName}</p>
+                        <p onClick={()=>{moveToPage("/profile/"+user.id)}}>{user.firstName}</p>
                     </div>
                     <p onClick={logoutUser}>Выход</p>
                 </div>

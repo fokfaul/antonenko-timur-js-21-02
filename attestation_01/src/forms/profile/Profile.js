@@ -1,9 +1,9 @@
 import './Profile.css';
 import {useState, useEffect} from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { loadAction } from '../../actions/PostsActions';
+import { loadAction } from '../../actions/ProfileActions';
 import { updateAction } from '../../actions/UpdateUserActions';
 import {Container} from '../../wrappers/container/Container';
 import {WinLoader} from '../../windows/loader/WinLoader';
@@ -11,25 +11,28 @@ import {ProfilePost} from '../../components/profile-post/ProfilePost';
 import {ArrowNav} from '../../components/arrow_nav/ArrowNav';
 import {EditProfile} from '../../windows/edit-profile/EditProfile';
 
+
 import useScrollToTop from "../../hooks/useScrollToTop";
 import useOnceOnMount from '../../hooks/useOnceOnMount';
 import {dateMDY} from '../../hooks/date';
 
-const Profile = ({user, postsList, page, total, loading, limit, errorPost,
-                    errorUser, loadPosts, updateStatus, updateUser, resetLogin}) => {
+const Profile = ({loginId, user, postsList, page, total, loading, limit, error,
+        load, updateStatus, updateUser, resetLogin}) => {
     useScrollToTop();
+    const params = useParams();
     const history = useHistory();
     const limitView = 2;
     const [displayEdit, setDisplayEdit] = useState(false);
     const closeEditWindow = () => {setDisplayEdit(false)};
     const [counter, setCounter] = useState(1);
-    const getNewPosts = (p) => loadPosts(p, limit, user.id);
+    const getNewPosts = (p) => load(user.id, p, limit);
     useEffect(() => {
-        if(errorUser)
+        if(error)
         {
+            alert(error);
             history.push("/users");
         }
-    }, [errorUser]);
+    }, [error]);
     const nextPosts = () => {
         if((counter+1)*limitView>limit)
         {
@@ -49,14 +52,14 @@ const Profile = ({user, postsList, page, total, loading, limit, errorPost,
         }
     };
     useOnceOnMount(() => {
-        if(localStorage.getItem("idUser"))
-            loadPosts(page, limit, localStorage.getItem("idUser"));
+        if(params.id)
+            load(params.id, page, limit);
         else
             history.push("/users");
     });
     return(
         <section className="profile"><Container>
-            {user.firstName?
+            {!loading ?
             <div className="profile__interface">
                 <div className="profile__user">
                     <img className="profile__user__img" src={user.picture} alt={user.id}/>
@@ -71,13 +74,15 @@ const Profile = ({user, postsList, page, total, loading, limit, errorPost,
                         </p>
                         <p className="profile__user__phone"><b>Phone:</b> {user.phone}</p>
                         <p className="profile__user__email"><b>Email:</b> {user.email}</p>
-                        <p className="profile__user__id"><b>ID:</b> {user.id}</p>
+                        {loginId === user.id? <p className="profile__user__id"><b>ID:</b> {user.id}</p> : ""}
                     </div>
+                    {loginId === user.id?
                     <div className="profile__user__edit">
                         <div className="profile__user__edit__button" onClick={()=>{setDisplayEdit(true);}}>
                             <div className="profile__user__edit__img"/><p>Редактировать</p>
                         </div>
                     </div>
+                    : ""}
                 </div>
                 <div className="profile__posts">
                   {loading? <WinLoader/> :
@@ -109,18 +114,18 @@ const Profile = ({user, postsList, page, total, loading, limit, errorPost,
 
 export default connect(
   (state) => ({
-    postsList: state.posts.postsList,
-    page: state.posts.page,
-    total: state.posts.total,
-    loading: state.posts.loading,
-    limit: state.posts.limit,
-    errorPost: state.posts.error,
-    errorUser: state.login.error,
-    user: state.login.userInfo,
+    loginId: state.login.id,
+    postsList: state.profile.postsList,
+    total: state.profile.total,
+    page: state.profile.page,
+    loading: state.profile.loading,
+    limit: state.profile.limit,
+    error: state.profile.error,
+    user: state.profile.userInfo,
     updateStatus: state.updateUser.loading
   }),
   (dispatch) => ({
-    loadPosts: bindActionCreators(loadAction, dispatch),
+    load: bindActionCreators(loadAction, dispatch),
     updateUser: bindActionCreators(updateAction, dispatch),
   }),
 )(Profile);

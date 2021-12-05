@@ -7,15 +7,21 @@ import { changeAction, resetAction } from '../../actions/ThemeActions';
 const DarkTheme = ({theme, changeTheme, resetTheme}) => {
     const toggleDark = () => {
         if(theme === "dark")
+        {
+            localStorage.setItem('theme', "");
             resetTheme();
+        }
         else
+        {
+            localStorage.setItem('theme', "dark");
             changeTheme("dark");
+        }
     }
     return(
         <div className="theme-checkbox">
             <p>Тёмная тема</p>
             <label className="checkbox-google">
-            	<input onChange={toggleDark} type="checkbox"/>
+            	<input defaultChecked={localStorage.getItem("theme") === "dark"} onChange={toggleDark} type="checkbox"/>
             	<span className="checkbox-google-switch"></span>
             </label>
         </div>

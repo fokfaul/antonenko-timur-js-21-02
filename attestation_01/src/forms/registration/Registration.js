@@ -4,16 +4,19 @@ import {useHistory} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {Container} from '../../wrappers/container/Container';
-import {Loader} from '../../components/loader/Loader';
+import {WinLoader} from '../../windows/loader/WinLoader';
 import {UserForm} from '../../components/user-form/UserForm';
 import { addAction, resetAction } from '../../actions/RegistrationActions';
+import { loginAction } from '../../actions/LoginActions';
 
-const Registration = ({loading, id, addUser, error, resetState}) => {
+const Registration = ({loading, id, addUser, error, resetState, login}) => {
   const history = useHistory();
     useEffect(() => {
         if(id)
         {
-            history.push("/users");
+            localStorage.setItem('idUser', id);
+            login(id);
+            history.push("/profile/" + id);
             resetState();
             return;
         }
@@ -26,7 +29,7 @@ const Registration = ({loading, id, addUser, error, resetState}) => {
 
   return (
     <section className="registration"><Container>
-        {loading? <Loader/> : ""}
+        {loading? <WinLoader/> : ""}
         <h2>Регистрация</h2>
         <UserForm callback={addUser}/>
     </Container></section>
@@ -42,5 +45,6 @@ export default connect(
   (dispatch) => ({
     addUser: bindActionCreators(addAction, dispatch),
     resetState: bindActionCreators(resetAction, dispatch),
+    login: bindActionCreators(loginAction, dispatch),
   }),
 )(Registration);
