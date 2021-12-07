@@ -5,12 +5,11 @@ import { loadErrorAction, loadSuccessAction } from '../actions/ProfileActions';
 
 function* getProfile(action) {
   try {
-    console.log(action);
-    const userResult = yield call(getUserById, action.id);
-    const postResult = yield call(getPostsList, action.page, action.limit, action.id);
     let error = "";
+    const userResult = yield call(getUserById, action.id);
     if ('error' in userResult)
-        error = userResult.data ? Object.values(userResult.data).join('<br/>') : userResult.error.toString();
+        error = userResult.data ? Object.values(userResult.data).join('<br/>') : userResult.error.toString()+"\n";
+    const postResult = yield call(getPostsList, action.page, action.limit, action.id);
     if ('error' in postResult)
         error += postResult.data ? Object.values(postResult.data).join('<br/>') : postResult.error.toString();
     if(error){
