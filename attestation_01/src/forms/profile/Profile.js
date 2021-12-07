@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { loadAction } from '../../actions/ProfileActions';
+import { loadAction, resetAction } from '../../actions/ProfileActions';
 import { updateAction } from '../../actions/UpdateUserActions';
 import {Container} from '../../wrappers/container/Container';
 import {WinLoader} from '../../windows/loader/WinLoader';
@@ -11,12 +11,10 @@ import {ProfilePost} from '../../components/profile-post/ProfilePost';
 import {ArrowNav} from '../../components/arrow_nav/ArrowNav';
 import {EditProfile} from '../../windows/edit-profile/EditProfile';
 
-
 import useScrollToTop from "../../hooks/useScrollToTop";
-import useOnceOnMount from '../../hooks/useOnceOnMount';
 import {dateMDY} from '../../hooks/date';
 
-const Profile = ({loginId, user, postsList, page, total, loading, limit, error,
+const Profile = ({loginId, user, postsList, page, total, loading, limit, error, reset,
         load, updateStatus, updateUser, resetLogin}) => {
     useScrollToTop();
     const params = useParams();
@@ -30,6 +28,7 @@ const Profile = ({loginId, user, postsList, page, total, loading, limit, error,
         if(error)
         {
             alert(error);
+            reset();
             history.push("/users");
         }
     }, [error]);
@@ -51,15 +50,15 @@ const Profile = ({loginId, user, postsList, page, total, loading, limit, error,
            getNewPosts(page-1);
         }
     };
-    useOnceOnMount(() => {
+    useEffect(() => {
         if(params.id)
             load(params.id, page, limit);
         else
             history.push("/users");
-    });
+    }, [params]);
     return(
         <section className="profile"><Container>
-            {!loading ?
+            {error ? "" : !loading ?
             <div className="profile__interface">
                 <div className="profile__user">
                     <img className="profile__user__img" src={user.picture} alt={user.id}/>
@@ -74,7 +73,7 @@ const Profile = ({loginId, user, postsList, page, total, loading, limit, error,
                         </p>
                         <p className="profile__user__phone"><b>Phone:</b> {user.phone}</p>
                         <p className="profile__user__email"><b>Email:</b> {user.email}</p>
-                        {loginId === user.id? <p className="profile__user__id"><b>ID:</b> {user.id}</p> : ""}
+                        <p className="profile__user__id"><b>ID:</b> {user.id}</p>
                     </div>
                     {loginId === user.id?
                     <div className="profile__user__edit">
@@ -92,9 +91,9 @@ const Profile = ({loginId, user, postsList, page, total, loading, limit, error,
                                 <ArrowNav mode="reverse" moveToPage={previousPosts}/> : ""
                         }
                         <div className="profile__posts__list">
-                          {postsList?.slice((counter-1)*limitView, counter*limitView).map((elem, index) => (
+                          {postsList ? postsList.slice((counter-1)*limitView, counter*limitView).map((elem, index) => (
                             <ProfilePost post={elem} key={index}/>
-                          ))}
+                          )) : ""}
                         </div>
                         {
                             (total/limitView>1 && (page*limit+(counter+1)*limitView) <= total) ?
@@ -126,6 +125,7 @@ export default connect(
   }),
   (dispatch) => ({
     load: bindActionCreators(loadAction, dispatch),
+    reset: bindActionCreators(resetAction, dispatch),
     updateUser: bindActionCreators(updateAction, dispatch),
   }),
 )(Profile);

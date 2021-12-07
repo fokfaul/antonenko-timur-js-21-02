@@ -3,6 +3,7 @@ import './DarkTheme.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { changeAction, resetAction } from '../../actions/ThemeActions';
+import useOnceOnMount from '../../hooks/useOnceOnMount';
 
 const DarkTheme = ({theme, changeTheme, resetTheme}) => {
     const toggleDark = () => {
@@ -17,6 +18,10 @@ const DarkTheme = ({theme, changeTheme, resetTheme}) => {
             changeTheme("dark");
         }
     }
+    useOnceOnMount(() => {
+       if(localStorage.getItem("theme") === "dark")
+           changeTheme("dark");
+    });
     return(
         <div className="theme-checkbox">
             <p>Тёмная тема</p>
