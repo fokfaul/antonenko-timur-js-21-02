@@ -1,5 +1,6 @@
-import { USER_URL, LIMIT_FIELD, PAGE_FIELD, BASE_URL, POST_URL } from '../constants/api/dumMyApi';
+import { USER_URL, LIMIT_FIELD, PAGE_FIELD, BASE_URL, POST_URL } from '../constants/api/ownApi';
 import { METHOD_GET, METHOD_POST, METHOD_PUT } from '../constants/api/common';
+import i18next from 'i18next';
 
 const doGetRequest = (path, searchParams?) => {
   const url = new URL(path, BASE_URL);
@@ -8,13 +9,19 @@ const doGetRequest = (path, searchParams?) => {
   });
   return fetch(url.toString(), {
     method: METHOD_GET,
+    headers: new Headers({
+      'Accept-Language': i18next.t("data.accept_language")
+    }),
   }).then((resp) => resp.json());
 };
 
 const doPostRequest = (path, postObj) => {
   return fetch(BASE_URL+path, {
     method: METHOD_POST,
-    headers: new Headers({ 'Content-Type': 'application/json;charset=utf-8' }),
+    headers: new Headers({
+        'Content-Type': 'application/json;charset=utf-8',
+        'Accept-Language': i18next.t("data.accept_language")
+    }),
     body: JSON.stringify(postObj)
   }).then((resp) => resp.json());
 };
@@ -22,7 +29,10 @@ const doPostRequest = (path, postObj) => {
 const doPutRequest = (path, postObj) => {
   return fetch(BASE_URL+path, {
     method: METHOD_PUT,
-    headers: new Headers({ 'Content-Type': 'application/json;charset=utf-8' }),
+    headers: new Headers({
+        'Content-Type': 'application/json;charset=utf-8',
+        'Accept-Language': i18next.t("data.accept_language")
+    }),
     body: JSON.stringify(postObj)
   }).then((resp) => resp.json());
 };

@@ -1,6 +1,6 @@
 import { takeEvery, put, all, call } from 'redux-saga/effects';
 import { LOAD_POST_PAGE } from '../constants/actions/post-page';
-import { getPostById } from '../api/dumMyApi';
+import { getPostById } from '../api/ownApi';
 import { loadErrorAction, loadSuccessAction } from '../actions/PostPageActions';
 
 function* loadPost(action) {
@@ -11,9 +11,10 @@ function* loadPost(action) {
         action.id,
       ),
     ]);
-    yield put(
-      loadSuccessAction(apiResult),
-    );
+    if('error' in apiResult)
+        yield put(loadErrorAction(apiResult.error));
+    else
+        yield put(loadSuccessAction(apiResult));
   } catch (e) {
     yield put(loadErrorAction(e.toString()));
   }

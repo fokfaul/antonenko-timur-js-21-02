@@ -1,6 +1,6 @@
 import { takeEvery, put, all, call } from 'redux-saga/effects';
 import { ADD_USER } from '../constants/actions/registration';
-import { addUser } from '../api/dumMyApi';
+import { addUser } from '../api/ownApi';
 import { addErrorAction, addSuccessAction } from '../actions/RegistrationActions';
 
 function* addUsers(action) {
@@ -10,8 +10,8 @@ function* addUsers(action) {
     ]);
     if("id" in apiResult){
         yield put(addSuccessAction(apiResult));
-    } else if ('error' in apiResult && apiResult.data) {
-        yield put(addErrorAction(Object.values(apiResult.data).join('<br/>')));
+    } else if ('error' in apiResult) {
+        yield put(addErrorAction(apiResult.error));
     }
   } catch (e) {
     yield put(addErrorAction(e.toString()));

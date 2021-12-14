@@ -8,6 +8,7 @@ export const Footer = () => {
     const { t } = useTranslation();
     const handleChangeLanguage = (language) => {
         i18next.changeLanguage(language);
+        window.location.reload();
     };
     return (
         <footer className="main-footer"><Container>

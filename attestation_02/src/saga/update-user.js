@@ -1,6 +1,6 @@
 import { takeEvery, put, all, call } from 'redux-saga/effects';
 import { UPDATE_USER } from '../constants/actions/update-user';
-import { updateUser } from '../api/dumMyApi';
+import { updateUser } from '../api/ownApi';
 import { updateEndAction } from '../actions/UpdateUserActions';
 import { loginErrorAction, loginSuccessAction } from '../actions/LoginActions';
 
@@ -15,10 +15,9 @@ function* update(action) {
             put(loginSuccessAction(apiResult))
         ]);
     } else if ('error' in apiResult) {
-        const error = apiResult.data ? Object.values(apiResult.data).join('<br/>') : apiResult.error;
         yield all([
             put(updateEndAction()),
-            put(loginErrorAction(error))
+            put(loginErrorAction(apiResult.error))
         ]);
     }
   } catch (e) {

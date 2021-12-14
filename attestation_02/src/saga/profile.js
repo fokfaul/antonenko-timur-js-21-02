@@ -1,6 +1,6 @@
 import { takeEvery, put, all, call } from 'redux-saga/effects';
 import { GET_PROFILE } from '../constants/actions/profile';
-import { getUserById, getPostsList } from '../api/dumMyApi';
+import { getUserById, getPostsList } from '../api/ownApi';
 import { loadErrorAction, loadSuccessAction } from '../actions/ProfileActions';
 
 function* getProfile(action) {
@@ -8,10 +8,10 @@ function* getProfile(action) {
     let error = "";
     const userResult = yield call(getUserById, action.id);
     if ('error' in userResult)
-        error = userResult.data ? Object.values(userResult.data).join('<br/>') : userResult.error.toString()+"\n";
+        error = userResult.error+"\n";
     const postResult = yield call(getPostsList, action.page, action.limit, action.id);
     if ('error' in postResult)
-        error += postResult.data ? Object.values(postResult.data).join('<br/>') : postResult.error.toString();
+        error += postResult.error;
     if(error){
         yield put(loadErrorAction(error));
     } else {

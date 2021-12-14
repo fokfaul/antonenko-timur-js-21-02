@@ -52,6 +52,7 @@ export const APP_RU = {
     }
   },
   data: {
-    joiner: " в "
+    joiner: " в ",
+    accept_language: "ru"
   }
 };

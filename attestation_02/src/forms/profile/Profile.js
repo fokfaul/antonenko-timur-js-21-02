@@ -13,7 +13,6 @@ import {EditProfile} from '../../windows/edit-profile/EditProfile';
 import { useTranslation } from 'react-i18next';
 
 import useScrollToTop from "../../hooks/useScrollToTop";
-import {dateMDY} from '../../hooks/date';
 
 const Profile = ({loginId, user, postsList, page, total, loading, limit, error, reset,
         load, updateStatus, updateUser, resetLogin}) => {
@@ -70,10 +69,10 @@ const Profile = ({loginId, user, postsList, page, total, loading, limit, error, 
                         </h2>
                         <p className="profile__user__gender"><b>{t("user.gender")}:</b> {t("user."+user.gender)}</p>
                         <p className="profile__user__birth">
-                            <b>{t("user.birth")}:</b> {user.dateOfBirth ? dateMDY(user.dateOfBirth) : ""}
+                            <b>{t("user.birth")}:</b> {user.dateOfBirth}
                         </p>
                         <p className="profile__user__register">
-                            <b>{t("user.reg")}:</b> {user.registerDate ? dateMDY(user.registerDate) : ""}
+                            <b>{t("user.reg")}:</b> {user.registerDate}
                         </p>
                         <p className="profile__user__phone"><b>{t("user.phone")}:</b> {user.phone}</p>
                         <p className="profile__user__email"><b>{t("user.email")}:</b> {user.email}</p>

@@ -1,7 +1,6 @@
 import './Post.css';
 import {Window} from '../../wrappers/window/Window';
 import Comments from '../../forms/comments/Comments';
-import {dateMDY} from '../../hooks/date';
 import {Helper} from '../../wrappers/helper/Helper';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -24,7 +23,7 @@ export const PostWindow = ({post, closeWindow}) => {
                             </p>
                         </div>
                     </Helper></Link>
-                    <p className="post-window__data">{dateMDY(post.publishDate)}</p>
+                    <p className="post-window__data">{post.publishDate}</p>
                 </div>
                 <img className="post-window__image" src={post.image} alt=""/>
                 <p className="post-window__text">{post.text}</p>

@@ -1,5 +1,4 @@
 import './Comment.css';
-import {dateDMT} from '../../hooks/date';
 import { useTranslation } from 'react-i18next';
 
 export const Comment = ({comment}) => {
@@ -11,7 +10,7 @@ export const Comment = ({comment}) => {
                 {t("user.title."+comment.owner.title)+". "+comment.owner.firstName+" "+comment.owner.lastName}
             </p>
             <p className="post-comment__text">{comment.message}</p>
-            <p className="post-comment__data">{dateDMT(comment.publishDate)}</p>
+            <p className="post-comment__data">{comment.publishDate}</p>
         </div>
     );
 };

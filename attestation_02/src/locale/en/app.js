@@ -53,6 +53,7 @@ export const APP_EN = {
     }
   },
   data: {
-    joiner: " in "
+    joiner: " in ",
+    accept_language: "en"
   }
 };

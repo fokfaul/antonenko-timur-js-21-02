@@ -1,6 +1,5 @@
 import './Post.css';
 import {Helper} from '../../wrappers/helper/Helper';
-import {dateDMT} from '../../hooks/date';
 import { useTranslation } from 'react-i18next';
 
 export const Post = ({post, openWindow}) => {
@@ -13,7 +12,7 @@ export const Post = ({post, openWindow}) => {
                     <p className="post__owner__name">
                         {t("user.title."+post.owner.title)+". "+post.owner.firstName+" "+post.owner.lastName}
                     </p>
-                    <p className="post__data">{dateDMT(post.publishDate)}</p>
+                    <p className="post__data">{post.publishDate}</p>
                 </div>
                 <img className="post__image" src={post.image} alt=""/>
                 <p>{post.text}</p>

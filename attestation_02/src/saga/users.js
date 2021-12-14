@@ -1,6 +1,6 @@
 import { takeEvery, put, all, call } from 'redux-saga/effects';
 import { LOAD_USERS } from '../constants/actions/users';
-import { getUsersList } from '../api/dumMyApi';
+import { getUsersList } from '../api/ownApi';
 import { loadErrorAction, loadSuccessAction } from '../actions/UsersActions';
 
 function* loadUsers(action) {
@@ -12,10 +12,10 @@ function* loadUsers(action) {
         action.limit,
       ),
     ]);
-
-    yield put(
-      loadSuccessAction(apiResult),
-    );
+    if('error' in apiResult)
+        yield put(loadErrorAction(apiResult.error));
+    else
+        yield put(loadSuccessAction(apiResult));
   } catch (e) {
     yield put(loadErrorAction(e.toString()));
   }
