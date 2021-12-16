@@ -69,7 +69,7 @@ const Profile = ({loginId, user, postsList, page, total, loading, limit, error, 
                         </h2>
                         <p className="profile__user__gender"><b>{t("user.gender")}:</b> {t("user."+user.gender)}</p>
                         <p className="profile__user__birth">
-                            <b>{t("user.birth")}:</b> {user.dateOfBirth}
+                            <b>{t("user.birth")}:</b> {user.dateOfBirthView}
                         </p>
                         <p className="profile__user__register">
                             <b>{t("user.reg")}:</b> {user.registerDate}
