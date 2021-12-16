@@ -3,6 +3,7 @@ import { UPDATE_USER } from '../constants/actions/update-user';
 import { updateUser } from '../api/ownApi';
 import { updateEndAction } from '../actions/UpdateUserActions';
 import { loginErrorAction, loginSuccessAction } from '../actions/LoginActions';
+import { loadAction } from '../actions/ProfileActions';
 
 function* update(action) {
   try {
@@ -12,7 +13,8 @@ function* update(action) {
     if("id" in apiResult){
         yield all([
             put(updateEndAction()),
-            put(loginSuccessAction(apiResult))
+            put(loginSuccessAction(apiResult)),
+            put(loadAction(apiResult.id, 0, 10))
         ]);
     } else if ('error' in apiResult) {
         yield all([

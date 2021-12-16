@@ -12,7 +12,7 @@ const initialState = {
   error: ""
 };
 
-const get = (draft, id, limit?, page?) => {
+const get = (draft, id, limit, page) => {
   draft.loading = true;
   draft.id = id;
   draft.limit = limit || 10;
