@@ -87,23 +87,21 @@ const Profile = ({loginId, user, postsList, page, total, loading, limit, error, 
                     : ""}
                 </div>
                 <div className="profile__posts">
-                  {loading? <WinLoader/> :
-                      <div className="profile__posts__view">
-                        {
-                            (total/limitView>1 && (counter!==1 || page!==0)) ?
-                                <ArrowNav mode="reverse" moveToPage={previousPosts}/> : ""
-                        }
-                        <div className="profile__posts__list">
-                          {postsList ? postsList.slice((counter-1)*limitView, counter*limitView).map((elem, index) => (
-                            <ProfilePost post={elem} key={index}/>
-                          )) : ""}
-                        </div>
-                        {
-                            (total/limitView>1 && (page*limit+(counter+1)*limitView) <= total) ?
-                                <ArrowNav moveToPage={nextPosts}/> : ""
-                        }
-                      </div>
-                  }
+                  <div className="profile__posts__view">
+                    {
+                        (total/limitView>1 && (counter!==1 || page!==0)) ?
+                            <ArrowNav mode="reverse" moveToPage={previousPosts}/> : ""
+                    }
+                    <div className="profile__posts__list">
+                      {postsList ? postsList.slice((counter-1)*limitView, counter*limitView).map((elem, index) => (
+                        <ProfilePost post={elem} key={index}/>
+                      )) : ""}
+                    </div>
+                    {
+                        (total/limitView>1 && (page*limit+counter*limitView) <= total) ?
+                            <ArrowNav moveToPage={nextPosts}/> : ""
+                    }
+                  </div>
                 </div>
             </div>
             : <WinLoader/>}

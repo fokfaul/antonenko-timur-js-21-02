@@ -20,3 +20,19 @@ export const Post = ({post, openWindow}) => {
         </div>
     );
 };
+
+Post.defaultProps = {
+    post :
+    {
+        owner: {
+            picture: "",
+            id: "",
+            firstName: "Незнакомец",
+            title: "no",
+            lastName: "???"
+        },
+        text: "-",
+        publishDate: "",
+        image: ""
+    }
+}

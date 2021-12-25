@@ -15,3 +15,17 @@ export const Comment = ({comment}) => {
     );
 };
 
+Comment.defaultProps = {
+    comment :
+    {
+        owner: {
+            picture: "",
+            firstName: "Незнакомец",
+            title: "no",
+            lastName: "???"
+        },
+        message: "-",
+        publishDate: ""
+    }
+}
+

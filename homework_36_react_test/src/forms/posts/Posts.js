@@ -20,14 +20,14 @@ const Posts = ({
     useScrollToTop();
     const [displayPost, setDisplayPost] = useState(false);
 
-    const moveToPage = (toPage, pageSize) => loadListPost(toPage-1, limit);
+    const moveToPage = (toPage, pageSize) => loadListPost(toPage-1, pageSize);
     const closePostWindow = () => {setDisplayPost(false)};
     const openPostWindow = (id) => {
         setDisplayPost(true);
         loadPostInfo(id);
     }
 
-    useOnceOnMount(() => loadListPost(page, limit));
+    useOnceOnMount(() => moveToPage(page+1, limit));
 
     return (
       <section className="posts">

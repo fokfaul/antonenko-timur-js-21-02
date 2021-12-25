@@ -14,8 +14,8 @@ import useScrollToTop from '../../hooks/useScrollToTop';
 const Users = ({usersList, page, limit, total, loading, load, error}) => {
     useScrollToTop();
     const { t } = useTranslation();
-    const moveToPage = (toPage, pageSize) => load(toPage-1, limit);
-    useOnceOnMount(() => load(page, limit));
+    const moveToPage = (toPage, pageSize) => load(toPage-1, pageSize);
+    useOnceOnMount(() => moveToPage(page+1, limit));
 
     return (
       <section className="users">
